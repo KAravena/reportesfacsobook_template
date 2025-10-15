@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info><title>APA placeholder (use official APA 7 CSL if needed)</title></info>
+  <citation><layout><text value="(Autor, Año)"/></layout></citation>
+  <bibliography><layout><text macro="title"/></layout></bibliography>
+</style>

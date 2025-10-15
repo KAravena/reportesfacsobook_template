@@ -1,0 +1,4 @@
+﻿---
+title: "Marco teórico"
+---
+Sintetiza la literatura relevante. Usa referencias como @desmond2019poverty.

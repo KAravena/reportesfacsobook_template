@@ -1,0 +1,21 @@
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const selectors = [
+    '.quarto-sidebar .logo img',
+    '.quarto-sidebar .quarto-logo img',
+    '.sidebar-logo img',
+    '.site-logo img',
+    'a.quarto-site-logo img'
+  ];
+  let img = null;
+  for (const s of selectors) {
+    img = document.querySelector(s);
+    if (img) break;
+  }
+  if (!img) return;
+  const a = document.createElement('a');
+  a.href = 'index.html';
+  img.parentNode.insertBefore(a, img);
+  a.appendChild(img);
+});
+</script>

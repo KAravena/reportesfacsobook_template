@@ -1,0 +1,22 @@
+# Quarto outputs
+_report/
+_book/
+_site/
+.DS_Store
+*.log
+*.aux
+*.toc
+*.out
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+renv/library/
+/.quarto/
+**/*.quarto_ipynb

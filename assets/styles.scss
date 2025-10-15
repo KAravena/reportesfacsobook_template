@@ -1,0 +1,142 @@
+/* =========================================================
+   Reportes FACSO — Estilos seguros (solo modo claro)
+   ========================================================= */
+
+/* Paleta (claro) */
+:root{
+  --ink:#111827;
+  --ink-soft:#475569;
+  --paper:#FFFFFF;
+  --line:#E5E7EB;
+  --facso:#002F6C;
+  --facso-2:#84A7D8;
+  --accent:#D91A2A;
+
+  /* Tokens Bootstrap (para que el tema herede) */
+  --bs-body-bg: var(--paper);
+  --bs-body-color: var(--ink);
+}
+
+/* Base (NO pintar html, solo body) */
+body{
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Noto Serif", Georgia, serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+/* Medios fluidos */
+img, svg, video, iframe{ max-width:100%; height:auto; }
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6{
+  font-family: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  letter-spacing:.2px; color:var(--ink); line-height:1.25;
+}
+h1{ font-size:clamp(1.9rem,3vw,2.4rem); margin:2.2rem 0 1rem; font-weight:700; }
+h2{ font-size:clamp(1.5rem,2.2vw,1.8rem); margin:1.8rem 0 .8rem; font-weight:650; }
+h3{ font-size:clamp(1.25rem,1.8vw,1.4rem); margin:1.4rem 0 .6rem; font-weight:600; }
+
+/* Portada nativa Quarto */
+.quarto-title-block .title{
+  font-size:clamp(2.2rem,4vw,2.8rem); font-weight:800; margin-bottom:.35rem;
+}
+.quarto-title-block .subtitle{
+  font-style:italic; color:var(--ink-soft);
+  font-size:clamp(1.15rem,2vw,1.35rem); margin-top:.1rem;
+}
+.quarto-title-block .quarto-title-meta{ margin-top:.8rem; }
+
+/* Texto, listas, separadores */
+p{ margin:.9rem 0; }
+li{ margin:.2rem 0; }
+hr{ border:0; height:1px; background:var(--line); margin:2rem 0; }
+
+/* Enlaces y foco */
+a{ color:#0F6CBD; text-decoration:none; }
+a:hover, a:focus{ color:#084B8A; text-decoration:underline; }
+a:focus-visible{ outline:2px dashed var(--facso-2); outline-offset:2px; }
+
+/* Citas y callouts */
+blockquote{
+  border-left:4px solid var(--facso);
+  padding:.6rem 1rem; color:#374151; background:#F9FAFB;
+}
+.callout{
+  border:1px solid var(--line); border-left-width:5px; border-radius:12px;
+}
+.callout-note{ border-left-color:#0F6CBD; }
+.callout-important{ border-left-color:var(--accent); }
+.callout-warning{ border-left-color:#d97706; }
+.callout-tip{ border-left-color:#16a34a; }
+
+/* Tablas y figuras */
+.table{
+  border:1px solid var(--line); border-radius:10px; overflow:hidden;
+}
+.table th, .table td{ border-color:var(--line); vertical-align:top; }
+.table-striped tbody tr:nth-of-type(odd){ background:#FAFAFA; }
+
+.figure{ margin:1.2rem 0; }
+.figure .figure-caption, .table-caption{ font-weight:600; color:var(--ink); margin-top:.4rem; }
+
+/* Código */
+pre, code, kbd, samp{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+}
+pre{
+  border:1px solid var(--line); border-radius:10px; background:#F8FAFC;
+  padding:.9rem 1rem; overflow-x:auto;
+}
+code{ background:#F3F4F6; border-radius:6px; padding:.1rem .35rem; }
+
+/* Notas al pie */
+.footnotes{ border-top:1px solid var(--line); margin-top:2rem; padding-top:1rem; }
+.footnote-ref{ text-decoration:none; }
+
+/* Print */
+@media print{
+  a{ color:inherit; text-decoration:underline; }
+}
+
+/* Logo en sidebar */
+.sidebar .sidebar-title .sidebar-logo img{
+  max-width: 150px;    /* ajusta tamaño */
+  height: auto;
+  display: block;
+  margin: .5rem auto 1rem;
+}
+
+/* Logo institucional centrado en página */
+.logo{
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0 1.5rem;
+}
+.logo img{
+  width: min(42vw, 440px);  /* tamaño máximo en pantalla */
+  height: auto;
+  image-rendering: -webkit-optimize-contrast; /* mejora nitidez en Chrome */
+}
+
+/* Ocultar la entrada de 'index' en el sidebar (TOC) */
+.sidebar .sidebar-menu-container a[href$="index.html"]{
+  display: none !important;
+}
+
+/* Fallback: oculta también el <li> cuando el navegador soporta :has() */
+.sidebar .sidebar-menu-container li:has(> a[href$="index.html"]) {
+  display: none !important;
+}
+
+/* Extra fallback para navegadores sin :has(): si 'index' es el primero */
+.sidebar .sidebar-menu-container > ul > li:first-child > a[href$="index.html"]{
+  display: none !important;
+}
+.sidebar .sidebar-menu-container > ul > li:first-child{
+  display: none !important;
+}

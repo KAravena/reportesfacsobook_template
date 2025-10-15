@@ -1,0 +1,21 @@
+{
+  "hash": "698d1c11916c9b9fe8cc949d887a80f6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Metodología\"\n---\n\nDescribe enfoque, datos, variables, diseño muestral y métodos de análisis.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Ejemplo reproducible con R (opcional)\nif (requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  library(tidyverse)\n  tibble(x = 1:5, y = x^2) |> print()\n}\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 5 × 2\n      x     y\n  <int> <dbl>\n1     1     1\n2     2     4\n3     3     9\n4     4    16\n5     5    25\n```\n\n\n:::\n:::\n",
+    "supporting": [
+      "03-metodologia_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

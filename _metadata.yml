@@ -1,0 +1,11 @@
+lang: es
+df-print: default
+crossref:
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabla"
+  eq-prefix: "Ecuación"
+  fig-title: "Lista de figuras"
+  tbl-title: "Lista de tablas"
+number-sections: true
+link-citations: true
+toc: true

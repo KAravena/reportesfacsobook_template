@@ -1,0 +1,19 @@
+﻿---
+title: "Metodología"
+---
+
+```{r cargar-paquetes}
+#| message: false
+#| warning: false
+#| echo: true
+
+# Carga paquetes de ejemplo
+library(tidyverse)
+```
+
+```{r resumen-datos}
+#| echo: false
+
+# Resumen estadístico
+summary(mtcars)
+```

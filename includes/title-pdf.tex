@@ -1,0 +1,62 @@
+% --- title-pdf.tex robusto (sin quiebres peligrosos) ---
+\makeatletter
+\providecommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\providecommand{\@subtitle}{}
+
+% Impresores seguros (evitan espacios/saltos indebidos)
+\newcommand{\PrintTitle}{%
+  {\sffamily\bfseries\fontsize{22pt}{26pt}\selectfont \@title\par}%
+}
+\newcommand{\PrintSubtitle}{%
+  \begingroup
+  \edef\temp{\detokenize{\@subtitle}}%
+  \ifx\temp\empty\relax
+    % sin subtítulo
+  \else
+    {\sffamily\large\itshape \@subtitle\par}%
+  \fi
+  \endgroup
+}
+\newcommand{\PrintAuthor}{%
+  {\normalsize \@author\par}%
+}
+\newcommand{\PrintDate}{%
+  {\small \@date\par}%
+}
+\makeatother
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{10mm}
+
+% Logo institucional
+\includegraphics[width=0.30\textwidth]{assets/cover.png}\par
+\vspace{12mm}
+
+% Título y subtítulo
+\PrintTitle
+\vspace{4mm}
+\PrintSubtitle
+
+\vspace{16mm}
+% Autor y fecha
+\PrintAuthor
+\vspace{2mm}
+\PrintDate
+
+\vspace{8mm}
+{\small Facultad de Ciencias Sociales — Universidad de Chile \par}
+
+\vfill
+\rule{.6\textwidth}{0.6pt}\par
+{\footnotesize Plantilla Quarto — Reportes FACSO\par}
+
+\end{center}
+\end{titlepage}
+
+% Preliminares (números romanos) y estilo simple
+\frontmatter
+\pagestyle{plain}
+
+\setcounter{tocdepth}{2} % (o 1/3 según prefieras)

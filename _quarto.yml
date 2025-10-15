@@ -1,0 +1,98 @@
+project:
+  type: book
+  output-dir: _book
+book:
+  title: Reportes FACSO - Plantilla Quarto
+  subtitle: Tesis, informes e investigaciones
+  output-file: reportes-facso-plantilla
+  author:
+  - name: Nombre Apellido
+    affiliation: Departamento de Sociolog�a, Universidad de Chile
+    orcid: 0000-0000-0000-0000
+  date: today
+  date-format: D [de] MMMM [de] YYYY
+  doi: ''
+  favicon: assets/favicon.png
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 2
+    pinned: true
+    logo: assets/cover.png
+  downloads:
+  - pdf
+  search: true
+  repo-actions:
+  - edit
+  - issue
+  page-navigation: true
+  chapters:
+  - index.qmd
+  - 00-prefacio.qmd
+  - part: Capítulos
+    chapters:
+    - 01-introduccion.qmd
+    - 02-marco-teorico.qmd
+    - 03-metodologia.qmd
+    - 04-resultados.qmd
+    - 05-discusion.qmd
+    - 06-conclusiones.qmd
+    - references.qmd
+  - part: Apéndices
+    chapters:
+    - apendices/A-encuestas.qmd
+    - apendices/B-tablas.qmd
+bibliography: refs/referencias.bib
+link-citations: true
+reference-location: document
+format:
+  html:
+    theme:
+      light: cosmo
+    toc: false
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-tools: true
+    df-print: paged
+    css: assets/styles.scss
+    anchor-sections: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    include-in-header: includes/logo-link.html
+    include-after-body:
+    - includes/citefix.html
+    - includes/renumber.html
+  pdf:
+    toc: true
+    lof: true
+    lot: true
+    documentclass: scrbook
+    classoption:
+    - oneside
+    papersize: a4
+    geometry:
+    - top=25mm
+    - bottom=25mm
+    - left=30mm
+    - right=20mm
+    mainfont: TeX Gyre Pagella
+    sansfont: TeX Gyre Heros
+    monofont: TeX Gyre Cursor
+    colorlinks: true
+    number-sections: true
+    include-in-header: includes/preamble.tex
+    include-before-body: includes/title-pdf.tex
+    include-after-body: includes/backmatter.tex
+    fig-cap-location: top
+    tbl-cap-location: top
+  docx:
+    reference-doc: includes/reference.docx
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+lang: es
+metadata-files:
+- _metadata.yml

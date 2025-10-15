@@ -1,0 +1,5 @@
+---
+title: "Apéndice B — Tablas adicionales"
+suppress-bibliography: true
+---
+Tablas expandida, tests de robustez, etc.
