@@ -1,5 +1,5 @@
-/* =========================================================
-   Reportes FACSO — Estilos seguros (solo modo claro)
+﻿/* =========================================================
+   Reportes FACSO â€” Estilos seguros (solo modo claro)
    ========================================================= */
 
 /* Paleta (claro) */
@@ -31,7 +31,7 @@ body{
 /* Medios fluidos */
 img, svg, video, iframe{ max-width:100%; height:auto; }
 
-/* Títulos */
+/* TÃ­tulos */
 h1, h2, h3, h4, h5, h6{
   font-family: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   letter-spacing:.2px; color:var(--ink); line-height:1.25;
@@ -91,7 +91,7 @@ blockquote{
 .figure{ margin:1.2rem 0; }
 .figure .figure-caption, .table-caption{ font-weight:600; color:var(--ink); margin-top:.4rem; }
 
-/* Código */
+/* CÃ³digo */
 pre, code, kbd, samp{
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
                "Liberation Mono", "Courier New", monospace;
@@ -113,36 +113,42 @@ code{ background:#F3F4F6; border-radius:6px; padding:.1rem .35rem; }
 
 /* Logo en sidebar */
 .sidebar .sidebar-title .sidebar-logo img{
-  max-width: 150px;    /* ajusta tamaño */
+  max-width: 150px;    /* ajusta tamaÃ±o */
   height: auto;
   display: block;
   margin: .5rem auto 1rem;
 }
 
-/* Logo institucional centrado en página */
+/* Logo institucional centrado en pÃ¡gina */
 .logo{
   display: flex;
   justify-content: center;
   margin: 2.5rem 0 1.5rem;
 }
 .logo img{
-  width: min(42vw, 440px);  /* tamaño máximo en pantalla */
+  width: min(42vw, 440px);  /* tamaÃ±o mÃ¡ximo en pantalla */
   height: auto;
   image-rendering: -webkit-optimize-contrast; /* mejora nitidez en Chrome */
 }
 
 /* Ocultar la entrada de 'index' en el sidebar (TOC) */
-.sidebar .sidebar-menu-container a[href$="index.html"]{
+.sidebar .sidebar-menu-container a[href$="index.html"],
+.sidebar .sidebar-menu-container a[href^="./index.html"],
+.sidebar .sidebar-menu-container a[href^="index.html#"]{
   display: none !important;
 }
 
-/* Fallback: oculta también el <li> cuando el navegador soporta :has() */
-.sidebar .sidebar-menu-container li:has(> a[href$="index.html"]) {
+/* Fallback: oculta tambiÃ©n el <li> cuando el navegador soporta :has() */
+.sidebar .sidebar-menu-container li:has(> a[href$="index.html"]),
+.sidebar .sidebar-menu-container li:has(> a[href^="./index.html"]),
+.sidebar .sidebar-menu-container li:has(> a[href^="index.html#"]) {
   display: none !important;
 }
 
 /* Extra fallback para navegadores sin :has(): si 'index' es el primero */
-.sidebar .sidebar-menu-container > ul > li:first-child > a[href$="index.html"]{
+.sidebar .sidebar-menu-container > ul > li:first-child > a[href$="index.html"],
+.sidebar .sidebar-menu-container > ul > li:first-child > a[href^="./index.html"],
+.sidebar .sidebar-menu-container > ul > li:first-child > a[href^="index.html#"]{
   display: none !important;
 }
 .sidebar .sidebar-menu-container > ul > li:first-child{
@@ -164,5 +170,8 @@ code{ background:#F3F4F6; border-radius:6px; padding:.1rem .35rem; }
   color:var(--ink);
   font-size:inherit;
 }
+
+
+
 
 
