@@ -18,7 +18,7 @@ div[data-when-format="pdf"] { display: none !important; }
 :::
 
 ::: {.content-visible when-format="pdf"}
-\small\textbf{Palabras clave:} sociologia, educacion, Chile
+\small\textbf{Palabras clave:} Sociologia, educacion, Chile
 
 \normalsize
 
@@ -26,6 +26,6 @@ div[data-when-format="pdf"] { display: none !important; }
 
 # Resumen {.unnumbered}
 
-Resumen en espanol (200-300 palabras). Expon proposito, metodo, resultados clave y conclusiones.
+Resumen en espanol (200-300 paas). Expon proposito, metodo, resultados clave y conclusiones.
 Puede incluir citas como @xie2017bookdown y se actualizaran automaticamente.
 

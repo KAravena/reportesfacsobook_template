@@ -7,7 +7,7 @@ book:
   output-file: reportes-facso-plantilla
   author:
   - name: Nombre Apellido
-    affiliation: Departamento de Sociologï¿½a, Universidad de Chile
+    affiliation: Departamento de Sociología, Universidad de Chile
     orcid: 0000-0000-0000-0000
   date: today
   date-format: D [de] MMMM [de] YYYY
@@ -96,4 +96,8 @@ crossref:
   appendix-delim: " - "
 metadata-files:
 - _metadata.yml
+
+
+
+
 
