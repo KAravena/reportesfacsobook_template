@@ -179,3 +179,4 @@ code{ background:#F3F4F6; border-radius:6px; padding:.1rem .35rem; }
 
 
 \n/* Oculta solo la numeración del enlace al índice */\n.sidebar .sidebar-menu-container a[href*='index.html'] .chapter-number{\n  display: none !important;\n}
+\n/* Oculta numeración para el capítulo índice */\n.sidebar .sidebar-menu-container a[href*='index.html'] .chapter-number,\nnav.quarto-page-breadcrumbs .breadcrumb-item a[href*='index.html'] .chapter-number{\n  display: none !important;\n}
