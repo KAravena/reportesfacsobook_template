@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function(){
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Reportes FACSO - Plantilla Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -356,11 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const indexLink = menu.querySelector('a.sidebar-item-text[href*="index.html"]');
     if (indexLink) {
-      const indexItem = indexLink.closest('li.sidebar-item');
-      if (indexItem) {
-        indexItem.remove();
-        return true;
+      const number = indexLink.querySelector('.chapter-number');
+      if (number) {
+        number.remove();
       }
+      return true;
     }
     return false;
   });
