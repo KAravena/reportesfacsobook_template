@@ -1,4 +1,5 @@
-﻿---
-title: "Marco teórico"
 ---
+title: "Antecedentes conceptuales y empíricos"
+---
+
 Sintetiza la literatura relevante. Usa referencias como @desmond2019poverty.

@@ -1,25 +1,30 @@
-% ---------- Paquetes tipográficos y microajustes ----------
+% ---------- Paquetes tipograficos y microajustes ----------
 \usepackage{microtype}        % mejor interletrado y justificado
-\usepackage{csquotes}         % comillas tipográficas
+\usepackage{csquotes}         % comillas tipograficas
 \usepackage{enumitem}         % listas compactas
 \setlist{itemsep=.2em, topsep=.2em}
 
-% ---------- KOMA-Script: estilo de títulos y espaciado ----------
+% ---------- KOMA-Script: estilo de titulos y espaciado ----------
 \KOMAoptions{
-  headings=big,        % títulos más jerárquicos
-  parskip=half,        % espacio entre párrafos
-  fontsize=11pt
+  headings=big,
+  parskip=never,
+  fontsize=11pt,
+  appendixprefix=true
 }
+\setlength{\parindent}{1.5em}
+\usepackage{indentfirst}
 
 % ---------- Encabezados y pies (scrlayer-scrpage) ----------
 \usepackage[automark,headsepline]{scrlayer-scrpage}
 \clearpairofpagestyles
-\ihead{\headmark}             % título de capítulo/sección
-\ohead{\pagemark}             % número de página
-\setheadsepline{.4pt}
-\cfoot{}                      % sin pie centrado
+\automark[chapter]{chapter}
+\ihead{\pagemark}
+\ohead{\itshape\headmark}
+\setheadsepline{0.4pt}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\cfoot{}
 
-% ---------- Hipervínculos más sobrios ----------
+% ---------- Hipervinculos mas sobrios ----------
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -36,7 +41,20 @@
   skip=8pt
 }
 
-% ---------- Viudas/Huérfanas y cortes de página ----------
+% ---------- Tabla de contenidos ----------
+\KOMAoptions{toc=graduated}
+\RedeclareSectionCommand[tocnumwidth=3em]{chapter}
+\RedeclareSectionCommand[tocindent=3.25em,tocnumwidth=2.8em]{section}
+\RedeclareSectionCommand[tocindent=6.5em,tocnumwidth=2.5em]{subsection}
+\makeatletter
+\newcommand*{\tocdotfill}{\leavevmode\leaders\hbox to .6em{\hss.\hss}\hfill}
+\makeatother
+\RedeclareSectionCommand[toclinefill=\tocdotfill]{chapter}
+\RedeclareSectionCommand[toclinefill=\tocdotfill]{section}
+\RedeclareSectionCommand[toclinefill=\tocdotfill]{subsection}
+\renewcommand*{\contentsname}{Tabla de contenido}
+
+% ---------- Viudas/Huerfanas y cortes de pagina ----------
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
@@ -61,12 +79,19 @@
 }{}
 \makeatother
 
-% ---------- Soporte de subtítulo desde YAML ----------
+% ---------- Soporte de subtitulo desde YAML ----------
 \makeatletter
 \providecommand{\subtitle}[1]{\gdef\@subtitle{#1}}
 \providecommand{\@subtitle}{}
 \makeatother
 
-% --- Desactivar portada y abstract automáticos de Pandoc (PDF) ---
+% --- Desactivar portada y abstract automaticos de Pandoc (PDF) ---
 \AtBeginDocument{\let\maketitle\relax}
 \renewenvironment{abstract}{}{}
+\providecommand{\appendixname}{}
+\providecommand{\appendixtocname}{}
+\providecommand{\appendixpagename}{}
+\renewcommand*{\appendixname}{Anexo}
+\renewcommand*{\appendixtocname}{Anexos}
+\renewcommand*{\appendixpagename}{Anexos}
+

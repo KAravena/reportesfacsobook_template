@@ -36,19 +36,27 @@ h1, h2, h3, h4, h5, h6{
   font-family: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   letter-spacing:.2px; color:var(--ink); line-height:1.25;
 }
-h1{ font-size:clamp(1.9rem,3vw,2.4rem); margin:2.2rem 0 1rem; font-weight:700; }
-h2{ font-size:clamp(1.5rem,2.2vw,1.8rem); margin:1.8rem 0 .8rem; font-weight:650; }
-h3{ font-size:clamp(1.25rem,1.8vw,1.4rem); margin:1.4rem 0 .6rem; font-weight:600; }
+h1{ font-size:clamp(1.7rem,2.7vw,2.1rem); margin:2rem 0 .9rem; font-weight:700; }
+h2{ font-size:clamp(1.4rem,2vw,1.6rem); margin:1.6rem 0 .75rem; font-weight:650; }
+h3{ font-size:clamp(1.15rem,1.6vw,1.3rem); margin:1.2rem 0 .55rem; font-weight:600; }
 
 /* Portada nativa Quarto */
 .quarto-title-block .title{
-  font-size:clamp(2.2rem,4vw,2.8rem); font-weight:800; margin-bottom:.35rem;
+  font-size:clamp(2rem,3.4vw,2.4rem); font-weight:800; margin-bottom:.3rem;
 }
 .quarto-title-block .subtitle{
   font-style:italic; color:var(--ink-soft);
-  font-size:clamp(1.15rem,2vw,1.35rem); margin-top:.1rem;
+  font-size:clamp(1.05rem,1.8vw,1.2rem); margin-top:.08rem;
 }
-.quarto-title-block .quarto-title-meta{ margin-top:.8rem; }
+.keywords-line{
+  display:inline-block;
+  font-size:.88rem;
+  color:var(--ink-soft);
+  margin-bottom:1rem;
+}
+.keywords-line strong{
+  color:var(--ink);
+}
 
 /* Texto, listas, separadores */
 p{ margin:.9rem 0; }
@@ -140,3 +148,21 @@ code{ background:#F3F4F6; border-radius:6px; padding:.1rem .35rem; }
 .sidebar .sidebar-menu-container > ul > li:first-child{
   display: none !important;
 }
+
+/* Sidebar numeracion y espaciado */
+/* Sidebar numeracion y espaciado */
+.sidebar .sidebar-menu-container .sidebar-item{
+  margin:.35rem 0;
+}
+.sidebar .sidebar-menu-container .sidebar-item-text{
+  font-size:.95rem;
+  letter-spacing:.01em;
+}
+.sidebar .sidebar-menu-container .chapter-number{
+  display:inline-block;
+  margin-right:.35rem;
+  color:var(--ink);
+  font-size:inherit;
+}
+
+

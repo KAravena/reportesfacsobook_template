@@ -1,7 +1,11 @@
 ---
 title: "Referencias"
-suppress-bibliography: false   # ← reactivamos solo aquí
+suppress-bibliography: false
 nocite: |
-  @*                           # ← incluye todas las entradas del .bib
+  @*
 number-sections: false
 ---
+
+::: {#refs}
+:::
+

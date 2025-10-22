@@ -1,6 +1,6 @@
 ---
-title: "Apéndice A — Instrumentos de levantamiento"
+title: "Instrumentos de levantamiento"
 suppress-bibliography: true
 ---
 
-Incluye cuestionarios, guías de entrevista, etc.
+Incluye cuestionarios, guias de entrevista, etc.

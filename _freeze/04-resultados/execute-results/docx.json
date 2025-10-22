@@ -1,8 +1,8 @@
 {
-  "hash": "aadfb5bc69f336f3d4a03d0bccd37ac9",
+  "hash": "fe08e15206078fb1c63dbc603e7b7a01",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Resultados\"\n---\nPresenta hallazgos con tablas y figuras.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n```\n\n::: {.cell-output-display}\n![Relación X^2](04-resultados_files/figure-docx/grafico-ejemplo-1.png)\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Resultados\"\n---\nPresenta hallazgos con tablas y figuras.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n```\n\n::: {.cell-output-display}\n![Relación X^2](04-resultados_files/figure-docx/grafico-ejemplo-1.png)\n:::\n:::\n\n",
     "supporting": [
       "04-resultados_files\\figure-docx"
     ],

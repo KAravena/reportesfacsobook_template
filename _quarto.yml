@@ -1,4 +1,4 @@
-project:
+﻿project:
   type: book
   output-dir: docs 
 book:
@@ -7,7 +7,7 @@ book:
   output-file: reportes-facso-plantilla
   author:
   - name: Nombre Apellido
-    affiliation: Departamento de Sociolog�a, Universidad de Chile
+    affiliation: Departamento de Sociologï¿½a, Universidad de Chile
     orcid: 0000-0000-0000-0000
   date: today
   date-format: D [de] MMMM [de] YYYY
@@ -29,22 +29,20 @@ book:
   chapters:
   - index.qmd
   - 00-prefacio.qmd
-  - part: Capítulos
-    chapters:
-    - 01-introduccion.qmd
-    - 02-marco-teorico.qmd
-    - 03-metodologia.qmd
-    - 04-resultados.qmd
-    - 05-discusion.qmd
-    - 06-conclusiones.qmd
-    - references.qmd
-  - part: Apéndices
-    chapters:
-    - apendices/A-encuestas.qmd
-    - apendices/B-tablas.qmd
+  - 01-introduccion.qmd
+  - 02-marco-teorico.qmd
+  - 03-metodologia.qmd
+  - 04-resultados.qmd
+  - 05-discusion.qmd
+  - 06-conclusiones.qmd
+  - references.qmd
+  appendices:
+  - apendices/A-encuestas.qmd
+  - apendices/B-tablas.qmd
+csl: refs/apa.csl
 bibliography: refs/referencias.bib
 link-citations: true
-reference-location: document
+reference-location: section
 format:
   html:
     theme:
@@ -61,6 +59,7 @@ format:
     link-external-newwindow: true
     include-in-header: includes/logo-link.html
     include-after-body:
+    - includes/sidebar-clean.html
     - includes/citefix.html
     - includes/renumber.html
   pdf:
@@ -76,7 +75,7 @@ format:
     - bottom=25mm
     - left=30mm
     - right=20mm
-    mainfont: TeX Gyre Pagella
+    mainfont: TeX Gyre Termes
     sansfont: TeX Gyre Heros
     monofont: TeX Gyre Cursor
     colorlinks: true
@@ -86,13 +85,15 @@ format:
     include-after-body: includes/backmatter.tex
     fig-cap-location: top
     tbl-cap-location: top
-  docx:
-    reference-doc: includes/reference.docx
 execute:
   echo: true
   warning: false
   message: false
   freeze: auto
 lang: es
+crossref:
+  appendix-title: "Anexo"
+  appendix-delim: " - "
 metadata-files:
 - _metadata.yml
+

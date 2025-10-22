@@ -1,13 +1,5 @@
 ﻿---
-title: "Título del documento"
-subtitle: "Subtítulo opcional"
-author:
-  - name: "Nombre Apellido"
-    affiliation: "Departamento de Sociología, Universidad de Chile"
-keywords: ["sociología", "educación", "Chile"]
-abstract: |
-  Resumen en español (200–300 palabras). Expón propósito, método, resultados clave y conclusiones.
-  Puede incluir citas como @xie2017bookdown y se actualizarán automáticamente.
+title: ""
 toc: false
 number-sections: false
 format:
@@ -16,3 +8,24 @@ format:
   pdf:
     title-block-style: none
 ---
+
+::: {.content-visible when-format="html"}
+<style>
+nav#TOC { display: none !important; }
+div[data-when-format="pdf"] { display: none !important; }
+</style>
+<span class="keywords-line"><strong>Palabras clave:</strong> sociologia, educacion, Chile</span>
+:::
+
+::: {.content-visible when-format="pdf"}
+\small\textbf{Palabras clave:} sociologia, educacion, Chile
+
+\normalsize
+
+:::
+
+# Resumen {.unnumbered}
+
+Resumen en espanol (200-300 palabras). Expon proposito, metodo, resultados clave y conclusiones.
+Puede incluir citas como @xie2017bookdown y se actualizaran automaticamente.
+

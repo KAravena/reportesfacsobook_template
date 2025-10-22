@@ -1,0 +1,48 @@
+﻿<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const ensureRemoval = (fn, attempts = 40, delay = 150) => {
+    if (fn()) {
+      return;
+    }
+    let tries = 0;
+    const timer = setInterval(() => {
+      tries += 1;
+      if (fn() || tries >= attempts) {
+        clearInterval(timer);
+      }
+    }, delay);
+  };
+
+  ensureRemoval(() => {
+    const menu = document.querySelector('.sidebar .sidebar-menu-container');
+    if (!menu) {
+      return false;
+    }
+    const indexLink = menu.querySelector('a.sidebar-item-text[href$="index.html"]');
+    if (indexLink) {
+      const indexItem = indexLink.closest('li.sidebar-item');
+      if (indexItem) {
+        indexItem.remove();
+        return true;
+      }
+    }
+    return false;
+  });
+
+  const isIndex = (() => {
+    const path = window.location.pathname.replace(/\\+/g, '/');
+    return path.endsWith('/index.html') || path === '/' || path === '';
+  })();
+
+  if (isIndex) {
+    ensureRemoval(() => {
+      const toc = document.getElementById('TOC');
+      if (toc) {
+        toc.remove();
+        return true;
+      }
+      return false;
+    });
+  }
+});
+</script>
