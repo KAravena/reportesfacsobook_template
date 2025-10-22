@@ -63,6 +63,7 @@ format:
     - includes/citefix.html
     - includes/renumber.html
   pdf:
+    pdf-engine: xelatex
     toc: true
     lof: true
     lot: true
