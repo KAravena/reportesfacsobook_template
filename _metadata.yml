@@ -1,4 +1,4 @@
-lang: es
+﻿lang: es
 df-print: default
 crossref:
   fig-prefix: "Figura"
@@ -8,4 +8,4 @@ crossref:
   tbl-title: "Lista de tablas"
 number-sections: true
 link-citations: true
-toc: true
+toc: false
