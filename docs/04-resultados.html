@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!menu) {
       return false;
     }
-    const indexLink = menu.querySelector('a.sidebar-item-text[href$="index.html"]');
+    const indexLink = menu.querySelector('a.sidebar-item-text[href*="index.html"]');
     if (indexLink) {
       const indexItem = indexLink.closest('li.sidebar-item');
       if (indexItem) {
