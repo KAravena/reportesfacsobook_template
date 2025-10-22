@@ -1,10 +1,10 @@
 ﻿---
 title: ""
-toc: false
 number-sections: false
 format:
   html:
     title-block-style: none
+    toc: false
   pdf:
     title-block-style: none
 ---
@@ -28,4 +28,3 @@ div[data-when-format="pdf"] { display: none !important; }
 
 Resumen en espanol (200-300 paas). Expon proposito, metodo, resultados clave y conclusiones.
 Puede incluir citas como @xie2017bookdown y se actualizaran automaticamente.
-
