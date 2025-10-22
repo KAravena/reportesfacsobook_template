@@ -18,8 +18,8 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
-            knitr
-            rmarkdown
+            any::knitr
+            any::rmarkdown
       - name: Install TinyTeX (for PDF)
         uses: r-lib/actions/setup-tinytex@v2
       - name: Render
