@@ -8,4 +8,4 @@ crossref:
   tbl-title: "Lista de tablas"
 number-sections: true
 link-citations: true
-toc: false
+toc: true
