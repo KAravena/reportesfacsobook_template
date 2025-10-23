@@ -250,6 +250,12 @@ code {
   display: none !important;
 }
 
+.quarto-sidebar .sidebar-menu-container a[href$="index.html"],
+.quarto-sidebar .sidebar-menu-container a[href^="./index.html"],
+.quarto-sidebar .sidebar-menu-container a[href^="index.html#"] {
+  display: none !important;
+}
+
 .sidebar .sidebar-menu-container .sidebar-item {
   margin: 0.35rem 0;
 }
@@ -269,6 +275,9 @@ code {
 .sidebar .sidebar-menu-container a[href$="index.html"] .chapter-number,
 .sidebar .sidebar-menu-container a[href^="./index.html"] .chapter-number,
 .sidebar .sidebar-menu-container a[href^="index.html#"] .chapter-number,
+.quarto-sidebar .sidebar-menu-container a[href$="index.html"] .chapter-number,
+.quarto-sidebar .sidebar-menu-container a[href^="./index.html"] .chapter-number,
+.quarto-sidebar .sidebar-menu-container a[href^="index.html#"] .chapter-number,
 nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-number {
   display: none !important;
 }
