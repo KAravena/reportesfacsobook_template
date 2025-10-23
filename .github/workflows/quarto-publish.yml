@@ -14,7 +14,9 @@ jobs:
         with:
           tinytex: true
       - name: Install TeX dependencies
-        run: tlmgr install tex-gyre
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y texlive-fonts-recommended
       - name: Render
         run: quarto render
       - name: Publish to GitHub Pages
