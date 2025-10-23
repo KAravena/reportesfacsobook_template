@@ -18,9 +18,11 @@ jobs:
           use-public-rspm: true
       - name: Install TeX dependencies
         run: |
-          TEXLIVE_ROOT=$(kpsewhich -var-value=SELFAUTOPARENT)
-          TEXLIVE_BIN="$TEXLIVE_ROOT/bin/$(uname -m)-linux"
-          "$TEXLIVE_BIN/tlmgr" install tex-gyre collection-fontsrecommended
+          TEXLIVE_DIR="${HOME}/.TinyTeX"
+          TEXLIVE_BIN="$TEXLIVE_DIR/bin/$(uname -m)-linux"
+          export PATH="$TEXLIVE_BIN:$PATH"
+          tlmgr install tex-gyre collection-fontsrecommended
+          tlmgr path add
       - name: Install R packages
         run: |
           Rscript -e 'install.packages(c("knitr","rmarkdown"), repos="https://cloud.r-project.org")'
