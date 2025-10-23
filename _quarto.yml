@@ -77,9 +77,9 @@ format:
     - bottom=25mm
     - left=30mm
     - right=20mm
-    mainfont: TeX Gyre Termes
-    sansfont: TeX Gyre Heros
-    monofont: TeX Gyre Cursor
+    mainfont: Latin Modern Roman
+    sansfont: Latin Modern Sans
+    monofont: Latin Modern Mono
     colorlinks: true
     number-sections: true
     include-in-header: includes/preamble.tex
