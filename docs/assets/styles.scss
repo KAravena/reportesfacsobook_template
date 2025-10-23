@@ -234,12 +234,6 @@ code {
   image-rendering: -webkit-optimize-contrast;
 }
 
-.sidebar .sidebar-menu-container li:has(> a[href$="index.html"]),
-.sidebar .sidebar-menu-container li:has(> a[href^="./index.html"]),
-.sidebar .sidebar-menu-container li:has(> a[href^="index.html#"]) {
-  display: none !important;
-}
-
 .sidebar .sidebar-menu-container .sidebar-item {
   margin: 0.35rem 0;
 }
@@ -264,4 +258,38 @@ code {
 .quarto-sidebar .sidebar-menu-container a[href^="index.html#"] .chapter-number,
 nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-number {
   display: none !important;
+}
+
+/* Encabezados agrupados en la barra lateral */
+.sidebar .sidebar-menu-container .sidebar-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 1.2rem 0 0.4rem;
+  padding-left: 0.25rem;
+}
+
+/* Estilos de navegación por partes */
+.sidebar .sidebar-menu-container .sidebar-item-section > .sidebar-item-container .sidebar-item-text {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  letter-spacing: 0.07em;
+  color: var(--ink-soft);
+}
+
+.sidebar .sidebar-menu-container .sidebar-item:not(.sidebar-item-section) .menu-text:not(:has(.chapter-number)) {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sidebar .sidebar-menu-container .sidebar-item .chapter-number {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.sidebar .sidebar-menu-container .sidebar-item .chapter-title {
+  font-weight: 500;
 }

@@ -338,63 +338,69 @@ document.addEventListener("DOMContentLoaded", function(){
 </main> <!-- /main -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const cleanIndexLink = () => {
-    let changed = false;
-    const links = document.querySelectorAll(
-      'a.sidebar-item-text[href*="index.html"]'
+  const organizeSidebar = () => {
+    const menu = document.querySelector('.sidebar .sidebar-menu-container ul');
+    if (!menu || menu.dataset.facsoOrganized === 'true') {
+      return false;
+    }
+
+    const items = Array.from(menu.children).filter((li) =>
+      li.classList.contains('sidebar-item')
     );
-    links.forEach((link) => {
-      const menuText = link.querySelector('.menu-text');
-      if (!menuText) {
-        return;
-      }
+    if (items.length === 0) {
+      return false;
+    }
 
-      const title = menuText.querySelector('.chapter-title');
-      if (title) {
-        if (title.previousSibling) {
-          title.previousSibling.remove();
-        }
-        const chapterNumber = menuText.querySelector('.chapter-number');
-        if (chapterNumber) {
-          chapterNumber.remove();
-        }
-        menuText.innerHTML = '';
-        menuText.appendChild(title);
-        changed = true;
-        return;
-      }
+    const createHeading = (text) => {
+      const li = document.createElement('li');
+      li.className = 'sidebar-heading';
+      li.textContent = text;
+      return li;
+    };
 
-      const chapterNumber = menuText.querySelector('.chapter-number');
-      if (chapterNumber) {
-        const sibling = chapterNumber.nextSibling;
-        chapterNumber.remove();
+    const abstractItem = items[0];
+    const prefaceItem = items[1];
+
+    if (abstractItem) {
+      const number = abstractItem.querySelector('.chapter-number');
+      if (number) {
+        const sibling = number.nextSibling;
+        number.remove();
         if (sibling && sibling.nodeType === Node.TEXT_NODE) {
           sibling.remove();
         }
-        menuText.textContent = menuText.textContent.trim();
-        changed = true;
       }
-    });
-    return changed;
+    }
+
+    if (abstractItem) {
+      menu.insertBefore(createHeading('Presentación'), abstractItem);
+    }
+
+    const firstChapter = items[2];
+    if (firstChapter) {
+      menu.insertBefore(createHeading('Informe'), firstChapter);
+    }
+
+    menu.dataset.facsoOrganized = 'true';
+    return true;
   };
 
-  const ensureClean = () => {
-    if (cleanIndexLink()) {
+  const ensureOrganized = () => {
+    if (organizeSidebar()) {
       return;
     }
+
     const observer = new MutationObserver(() => {
-      if (cleanIndexLink()) {
+      if (organizeSidebar()) {
         observer.disconnect();
       }
     });
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
   };
 
-  ensureClean();
-  document.addEventListener('quarto:navChanged', ensureClean);
+  ensureOrganized();
+  document.addEventListener('quarto:navChanged', ensureOrganized);
 });
 </script>
 <script>
