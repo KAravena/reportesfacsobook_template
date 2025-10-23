@@ -5,6 +5,7 @@ book:
   title: Reportes FACSO - Plantilla Quarto
   subtitle: Tesis, informes e investigaciones
   output-file: reportes-facso-plantilla
+  repo-url: https://github.com/KAravena/reportesfacsobook_template
   author:
   - name: Nombre Apellido
     affiliation: Departamento de Sociología, Universidad de Chile
