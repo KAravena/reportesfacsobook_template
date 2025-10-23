@@ -240,22 +240,6 @@ code {
   display: none !important;
 }
 
-.sidebar .sidebar-menu-container > ul > li:first-child > a[href$="index.html"],
-.sidebar .sidebar-menu-container > ul > li:first-child > a[href^="./index.html"],
-.sidebar .sidebar-menu-container > ul > li:first-child > a[href^="index.html#"] {
-  display: none !important;
-}
-
-.sidebar .sidebar-menu-container > ul > li:first-child {
-  display: none !important;
-}
-
-.quarto-sidebar .sidebar-menu-container a[href$="index.html"],
-.quarto-sidebar .sidebar-menu-container a[href^="./index.html"],
-.quarto-sidebar .sidebar-menu-container a[href^="index.html#"] {
-  display: none !important;
-}
-
 .sidebar .sidebar-menu-container .sidebar-item {
   margin: 0.35rem 0;
 }

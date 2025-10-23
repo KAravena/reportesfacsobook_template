@@ -62,7 +62,6 @@ format:
     include-after-body:
     - includes/sidebar-clean.html
     - includes/citefix.html
-    - includes/renumber.html
   pdf:
     pdf-engine: xelatex
     toc: true

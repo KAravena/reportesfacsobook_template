@@ -1,73 +1,61 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const removeIndexNumber = () => {
+  const cleanIndexLink = () => {
     let changed = false;
-    document
-      .querySelectorAll(
-        '.sidebar .sidebar-menu-container, .quarto-sidebar .sidebar-menu-container'
-      )
-      .forEach(menu => {
-        const link = menu.querySelector('a.sidebar-item-text[href*="index.html"]');
-        if (!link) {
-          return;
-        }
+    const links = document.querySelectorAll(
+      'a.sidebar-item-text[href*="index.html"]'
+    );
+    links.forEach((link) => {
+      const menuText = link.querySelector('.menu-text');
+      if (!menuText) {
+        return;
+      }
 
-        const chapterNumber = link.querySelector('.chapter-number');
-        if (chapterNumber) {
-          if (chapterNumber.textContent.trim().length) {
-            chapterNumber.textContent = '';
-            chapterNumber.style.display = 'none';
-          }
-          const sibling = chapterNumber.nextSibling;
-          if (sibling && sibling.nodeType === Node.TEXT_NODE) {
-            sibling.remove();
-          }
-          changed = true;
+      const title = menuText.querySelector('.chapter-title');
+      if (title) {
+        if (title.previousSibling) {
+          title.previousSibling.remove();
         }
-      });
+        const chapterNumber = menuText.querySelector('.chapter-number');
+        if (chapterNumber) {
+          chapterNumber.remove();
+        }
+        menuText.innerHTML = '';
+        menuText.appendChild(title);
+        changed = true;
+        return;
+      }
+
+      const chapterNumber = menuText.querySelector('.chapter-number');
+      if (chapterNumber) {
+        const sibling = chapterNumber.nextSibling;
+        chapterNumber.remove();
+        if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+          sibling.remove();
+        }
+        menuText.textContent = menuText.textContent.trim();
+        changed = true;
+      }
+    });
     return changed;
   };
 
-  const ensureRemoval = (attempts = 40, delay = 150) => {
-    if (removeIndexNumber()) {
+  const ensureClean = () => {
+    if (cleanIndexLink()) {
       return;
     }
-    let tries = 0;
-    const timer = setInterval(() => {
-      tries += 1;
-      if (removeIndexNumber() || tries >= attempts) {
-        clearInterval(timer);
+    const observer = new MutationObserver(() => {
+      if (cleanIndexLink()) {
+        observer.disconnect();
       }
-    }, delay);
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
   };
 
-  ensureRemoval();
-  document.addEventListener('quarto:navChanged', () => ensureRemoval());
-
-  const path = window.location.pathname.replace(/\+/g, '/');
-  const isIndex =
-    path.endsWith('/index.html') || path === '/' || path === '' || path.endsWith('/');
-
-  if (isIndex) {
-    const ensureTocRemoved = (attempts = 40, delay = 150) => {
-      const toc = document.getElementById('TOC');
-      if (toc) {
-        toc.remove();
-        return;
-      }
-      let tries = 0;
-      const timer = setInterval(() => {
-        tries += 1;
-        const node = document.getElementById('TOC');
-        if (node || tries >= attempts) {
-          if (node) {
-            node.remove();
-          }
-          clearInterval(timer);
-        }
-      }, delay);
-    };
-    ensureTocRemoved();
-  }
+  ensureClean();
+  document.addEventListener('quarto:navChanged', ensureClean);
 });
 </script>
