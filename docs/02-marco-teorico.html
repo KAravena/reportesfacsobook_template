@@ -333,59 +333,79 @@ Desmond, M., &amp; Wilmers, N. (2019). The Racialized Geography of Housing. <em>
 </div>
 
 </main> <!-- /main -->
-﻿<script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const ensureRemoval = (fn, attempts = 40, delay = 150) => {
-    if (fn()) {
+  const removeIndexNumber = () => {
+    let changed = false;
+    document
+      .querySelectorAll(
+        '.sidebar .sidebar-menu-container, .quarto-sidebar .sidebar-menu-container'
+      )
+      .forEach(menu => {
+        const link = menu.querySelector('a.sidebar-item-text[href*="index.html"]');
+        if (!link) {
+          return;
+        }
+
+        const chapterNumber = link.querySelector('.chapter-number');
+        if (chapterNumber) {
+          if (chapterNumber.textContent.trim().length) {
+            chapterNumber.textContent = '';
+            chapterNumber.style.display = 'none';
+          }
+          const sibling = chapterNumber.nextSibling;
+          if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+            sibling.remove();
+          }
+          changed = true;
+        }
+      });
+    return changed;
+  };
+
+  const ensureRemoval = (attempts = 40, delay = 150) => {
+    if (removeIndexNumber()) {
       return;
     }
     let tries = 0;
     const timer = setInterval(() => {
       tries += 1;
-      if (fn() || tries >= attempts) {
+      if (removeIndexNumber() || tries >= attempts) {
         clearInterval(timer);
       }
     }, delay);
   };
 
-  ensureRemoval(() => {
-    const menu = document.querySelector('.sidebar .sidebar-menu-container, .quarto-sidebar .sidebar-menu-container');
-    if (!menu) {
-      return false;
-    }
-    const indexLink = menu.querySelector('a.sidebar-item-text[href*="index.html"]');
-    if (indexLink) {
-      const number = indexLink.querySelector('.chapter-number');
-      if (number) {
-        number.remove();
-      }
-      const sibling = number ? number.nextSibling : null;
-      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
-        sibling.remove();
-      }
-      return true;
-    }
-    return false;
-  });
+  ensureRemoval();
+  document.addEventListener('quarto:navChanged', () => ensureRemoval());
 
-  const isIndex = (() => {
-    const path = window.location.pathname.replace(/\\+/g, '/');
-    return path.endsWith('/index.html') || path === '/' || path === '';
-  })();
+  const path = window.location.pathname.replace(/\+/g, '/');
+  const isIndex =
+    path.endsWith('/index.html') || path === '/' || path === '' || path.endsWith('/');
 
   if (isIndex) {
-    ensureRemoval(() => {
+    const ensureTocRemoved = (attempts = 40, delay = 150) => {
       const toc = document.getElementById('TOC');
       if (toc) {
         toc.remove();
-        return true;
+        return;
       }
-      return false;
-    });
+      let tries = 0;
+      const timer = setInterval(() => {
+        tries += 1;
+        const node = document.getElementById('TOC');
+        if (node || tries >= attempts) {
+          if (node) {
+            node.remove();
+          }
+          clearInterval(timer);
+        }
+      }, delay);
+    };
+    ensureTocRemoved();
   }
 });
 </script>
-
 <script>
 
 (function () {
