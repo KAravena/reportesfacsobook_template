@@ -38,7 +38,8 @@ jobs:
           fi
       - name: Initialize gh-pages branch
         if: steps.ghpages.outputs.exists == 'false'
-        run: quarto publish gh-pages --no-prompt --no-render
+        run: |
+          quarto publish gh-pages --no-prompt --no-render || git push origin HEAD:gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to GitHub Pages
