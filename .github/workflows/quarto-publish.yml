@@ -18,8 +18,9 @@ jobs:
           use-public-rspm: true
       - name: Install TeX dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install --no-install-recommends -y texlive-fonts-recommended
+          TEXLIVE_ROOT=$(kpsewhich -var-value=SELFAUTOPARENT)
+          TEXLIVE_BIN="$TEXLIVE_ROOT/bin/$(uname -m)-linux"
+          "$TEXLIVE_BIN/tlmgr" install tex-gyre collection-fontsrecommended
       - name: Install R packages
         run: |
           Rscript -e 'install.packages(c("knitr","rmarkdown"), repos="https://cloud.r-project.org")'
