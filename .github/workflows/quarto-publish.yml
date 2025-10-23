@@ -11,19 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
-      - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.3.3'
-      - name: Install R packages
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::knitr
-            any::rmarkdown
-      - name: Install TinyTeX (for PDF)
-        uses: r-lib/actions/setup-tinytex@v2
+          tinytex: true
+      - name: Install TeX dependencies
+        run: tlmgr install tex-gyre
       - name: Render
-        uses: quarto-dev/quarto-actions/render@v2
+        run: quarto render
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:

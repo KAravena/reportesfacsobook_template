@@ -4,7 +4,7 @@
     "engine": "knitr",
     "markdown": "---\ntitle: \"Resultados\"\n---\nPresenta hallazgos con tablas y figuras.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n```\n\n::: {.cell-output-display}\n![Relación X^2](04-resultados_files/figure-html/grafico-ejemplo-1.png){width=672}\n:::\n:::\n\n",
     "supporting": [
-      "04-resultados_files\\figure-html"
+      "04-resultados_files"
     ],
     "filters": [
       "rmarkdown/pagebreak.lua"

@@ -1,5 +1,0 @@
----
-title: 'Test'
-number-offset: -1
----
-# Heading

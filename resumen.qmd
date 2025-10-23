@@ -1,8 +1,0 @@
-﻿---
-number-sections: false
----
-
-# Resumen {.unnumbered}
-
-Resumen en español (200–300 palabras). Expón propósito, método, resultados clave y conclusiones.
-Puede incluir citas como @xie2017bookdown y se actualizarán automáticamente.
