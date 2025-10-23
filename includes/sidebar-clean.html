@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   ensureRemoval(() => {
-    const menu = document.querySelector('.sidebar .sidebar-menu-container');
+    const menu = document.querySelector('.sidebar .sidebar-menu-container, .quarto-sidebar .sidebar-menu-container');
     if (!menu) {
       return false;
     }
@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const number = indexLink.querySelector('.chapter-number');
       if (number) {
         number.remove();
+      }
+      const sibling = number ? number.nextSibling : null;
+      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+        sibling.remove();
       }
       return true;
     }
