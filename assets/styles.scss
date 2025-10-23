@@ -234,12 +234,6 @@ code {
   image-rendering: -webkit-optimize-contrast;
 }
 
-.sidebar .sidebar-menu-container a[href$="index.html"],
-.sidebar .sidebar-menu-container a[href^="./index.html"],
-.sidebar .sidebar-menu-container a[href^="index.html#"] {
-  display: none !important;
-}
-
 .sidebar .sidebar-menu-container li:has(> a[href$="index.html"]),
 .sidebar .sidebar-menu-container li:has(> a[href^="./index.html"]),
 .sidebar .sidebar-menu-container li:has(> a[href^="index.html#"]) {
@@ -272,10 +266,9 @@ code {
   font-size: inherit;
 }
 
-.sidebar .sidebar-menu-container a[href*="index.html"] .chapter-number,
-nav.quarto-page-breadcrumbs
-  .breadcrumb-item
-  a[href*="index.html"]
-  .chapter-number {
+.sidebar .sidebar-menu-container a[href$="index.html"] .chapter-number,
+.sidebar .sidebar-menu-container a[href^="./index.html"] .chapter-number,
+.sidebar .sidebar-menu-container a[href^="index.html#"] .chapter-number,
+nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-number {
   display: none !important;
 }
