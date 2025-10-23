@@ -538,6 +538,16 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   document.querySelectorAll('.chapter-number').forEach((el) => {
+    const link = el.closest('a.sidebar-item-text');
+    if (link && link.getAttribute('href')?.includes('index.html')) {
+      el.textContent = '';
+      el.style.display = 'none';
+      const sibling = el.nextSibling;
+      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+        sibling.remove();
+      }
+      return;
+    }
     const updated = adjust(el.textContent.trim());
     if (updated !== null) {
       el.textContent = updated;
@@ -545,6 +555,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('[data-number]').forEach((el) => {
+    const href = el.getAttribute('href') || el.closest('a')?.getAttribute('href');
+    if (href && href.includes('index.html')) {
+      el.setAttribute('data-number', '');
+      return;
+    }
     const updated = adjust(el.getAttribute('data-number'));
     if (updated !== null) {
       el.setAttribute('data-number', updated);
@@ -560,7 +575,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
