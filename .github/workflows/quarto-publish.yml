@@ -28,10 +28,23 @@ jobs:
           Rscript -e 'install.packages(c("knitr","rmarkdown"), repos="https://cloud.r-project.org")'
       - name: Render
         run: quarto render
+      - name: Check gh-pages branch
+        id: ghpages
+        run: |
+          if git ls-remote --exit-code --heads origin gh-pages > /dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Initialize gh-pages branch
+        if: steps.ghpages.outputs.exists == 'false'
+        run: quarto publish gh-pages --no-prompt --no-render
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to GitHub Pages
+        if: steps.ghpages.outputs.exists == 'true'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          create-branch: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
