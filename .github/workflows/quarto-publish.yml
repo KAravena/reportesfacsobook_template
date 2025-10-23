@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-22.04
@@ -38,12 +41,16 @@ jobs:
           fi
       - name: Initialize gh-pages branch
         if: steps.ghpages.outputs.exists == 'false'
+        id: initghpages
         run: |
-          quarto publish gh-pages --no-prompt --no-render || git push origin HEAD:gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          EMPTY_TREE=$(git hash-object -t tree /dev/null)
+          EMPTY_COMMIT=$(git commit-tree "$EMPTY_TREE" -m "Initialize gh-pages branch")
+          git push origin "$EMPTY_COMMIT:refs/heads/gh-pages"
+          echo "created=true" >> "$GITHUB_OUTPUT"
       - name: Publish to GitHub Pages
-        if: steps.ghpages.outputs.exists == 'true'
+        if: steps.ghpages.outputs.exists == 'true' || steps.initghpages.outputs.created == 'true'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
