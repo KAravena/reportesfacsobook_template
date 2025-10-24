@@ -1,3 +1,5 @@
+}
+
 /* =========================================================
    Reportes FACSO - estilos base (solo modo claro)
    ========================================================= */
@@ -267,90 +269,50 @@ nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-numb
   display: none !important;
 }
 
-.sidebar.sidebar-navigation.docked {
-  border-radius: 0;
-  min-height: 100vh;
+footer.footer {
+  display: none !important;
+}
+footer.footer {
+  display: none !important;
 }
 
-/* Encabezados agrupados en la barra lateral */
-.sidebar .sidebar-menu-container .sidebar-heading {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.84rem;
-  letter-spacing: 0.08em;
+.toc-actions {
+  display: none !important;
+}
+
+nav.page-navigation {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 1.5rem;
+  background: var(--paper);
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  font-size: 0.92rem;
   color: var(--ink-soft);
-  margin: 1.2rem 0 0.4rem;
-  padding-left: 0.25rem;
+  gap: 1rem;
 }
 
-/* Estilos de navegación por partes */
-.sidebar .sidebar-menu-container .sidebar-item-section > .sidebar-item-container .sidebar-item-text {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.84rem;
-  letter-spacing: 0.07em;
+nav.page-navigation .nav-page {
+  flex: 1 1 0;
+}
+
+nav.page-navigation .nav-page.nav-page-previous {
+  text-align: left;
+}
+
+nav.page-navigation .nav-page.nav-page-next {
+  text-align: right;
+}
+
+nav.page-navigation .nav-page a {
   color: var(--ink-soft);
-}
-
-.sidebar .sidebar-menu-container .sidebar-item:not(.sidebar-item-section) .menu-text:not(:has(.chapter-number)) {
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.sidebar .sidebar-menu-container .sidebar-item .chapter-number {
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.sidebar .sidebar-menu-container .sidebar-item .chapter-title {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-weight: 500;
 }
 
-.quarto-container.page-layout-article {
-  min-height: 100vh;
-  background: var(--paper);
-  display: flex;
-}
-
-.quarto-container.page-layout-article {
-  min-height: 100vh;
-  background: var(--paper);
-  display: flex;
-  align-items: stretch;
-}
-
-.sidebar,
-.quarto-sidebar,
-.quarto-sidebar-collapse-item {
-  border-radius: 0 !important;
-  background: var(--paper);
-}
-
-.sidebar.sidebar-navigation.docked,
-.quarto-container.page-layout-article > nav.sidebar {
-  height: 100vh;
-  min-height: 100vh;
-  overflow-y: auto;
-}
-
-.quarto-container.page-layout-article > main.content {
-  min-height: 100vh;
-  flex: 1 1 auto;
-  background: var(--paper);
-}
-
-/* Sidebar layout: ocupa todo el alto sin cortes */
-.sidebar,
-.quarto-sidebar {
-  min-height: 100vh;
-  background: var(--paper);
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar .sidebar-menu-container,
-.quarto-sidebar .sidebar-menu-container {
-  flex: 1;
-  overflow-y: auto;
-  padding-bottom: 0;
+nav.page-navigation .nav-page a:hover {
+  color: var(--ink);
 }

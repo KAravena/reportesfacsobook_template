@@ -23,9 +23,7 @@ book:
   downloads:
   - pdf
   search: true
-  repo-actions:
-  - edit
-  - issue
+  repo-actions: []
   page-navigation: true
   chapters:
   - index.qmd
