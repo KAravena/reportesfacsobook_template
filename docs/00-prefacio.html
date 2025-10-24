@@ -312,73 +312,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </main> <!-- /main -->
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const organizeSidebar = () => {
-    const menu = document.querySelector('.sidebar .sidebar-menu-container ul');
-    if (!menu || menu.dataset.facsoOrganized === 'true') {
-      return false;
-    }
-
-    const items = Array.from(menu.children).filter((li) =>
-      li.classList.contains('sidebar-item')
-    );
-    if (items.length === 0) {
-      return false;
-    }
-
-    const createHeading = (text) => {
-      const li = document.createElement('li');
-      li.className = 'sidebar-heading';
-      li.textContent = text;
-      return li;
-    };
-
-    const abstractItem = items[0];
-    const prefaceItem = items[1];
-
-    if (abstractItem) {
-      const number = abstractItem.querySelector('.chapter-number');
-      if (number) {
-        const sibling = number.nextSibling;
-        number.remove();
-        if (sibling && sibling.nodeType === Node.TEXT_NODE) {
-          sibling.remove();
-        }
-      }
-    }
-
-    if (abstractItem) {
-      menu.insertBefore(createHeading('Presentación'), abstractItem);
-    }
-
-    const firstChapter = items[2];
-    if (firstChapter) {
-      menu.insertBefore(createHeading('Informe'), firstChapter);
-    }
-
-    menu.dataset.facsoOrganized = 'true';
-    return true;
-  };
-
-  const ensureOrganized = () => {
-    if (organizeSidebar()) {
-      return;
-    }
-
-    const observer = new MutationObserver(() => {
-      if (organizeSidebar()) {
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-  };
-
-  ensureOrganized();
-  document.addEventListener('quarto:navChanged', ensureOrganized);
-});
-</script>
-<script>
 
 (function () {
 
@@ -525,6 +458,74 @@ a[role="doc-biblioref"]:focus-visible {
 #refs .csl-entry:last-child { border-bottom: none; }
 
 </style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
+
+  chapterNumbers.forEach((el, idx) => {
+
+    if (idx === 0) {
+
+      const sibling = el.nextSibling;
+
+      el.textContent = '';
+
+      el.style.display = 'none';
+
+      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+
+        sibling.remove();
+
+      }
+
+    } else {
+
+      el.textContent = String(idx);
+
+    }
+
+  });
+
+
+
+  document.querySelectorAll('[data-number]').forEach((el) => {
+
+    const link = el.closest('a');
+
+    const href = (link && link.getAttribute('href')) || el.getAttribute('href');
+
+    if (href && href.includes('index.html')) {
+
+      el.setAttribute('data-number', '');
+
+      return;
+
+    }
+
+    const current = el.getAttribute('data-number');
+
+    if (!current) {
+
+      return;
+
+    }
+
+    const num = parseInt(current, 10);
+
+    if (!Number.isNaN(num) && num > 0) {
+
+      el.setAttribute('data-number', String(num - 1));
+
+    }
+
+  });
+
+});
+
+</script>
 
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

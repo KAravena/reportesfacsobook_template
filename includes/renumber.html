@@ -1,49 +1,34 @@
-﻿<script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
-  const adjust = (value) => {
-    const num = parseInt(value, 10);
-    if (Number.isNaN(num) || num <= 0) {
-      return null;
-    }
-    const adjusted = num - 1;
-    return adjusted > 0 ? String(adjusted) : '1';
-  };
-
-  document.querySelectorAll('.chapter-number').forEach((el) => {
-    const link = el.closest('a.sidebar-item-text');
-    if (link && link.getAttribute('href')?.includes('index.html')) {
+  const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
+  chapterNumbers.forEach((el, idx) => {
+    if (idx === 0) {
+      const sibling = el.nextSibling;
       el.textContent = '';
       el.style.display = 'none';
-      const sibling = el.nextSibling;
       if (sibling && sibling.nodeType === Node.TEXT_NODE) {
         sibling.remove();
       }
-      return;
-    }
-    const updated = adjust(el.textContent.trim());
-    if (updated !== null) {
-      el.textContent = updated;
+    } else {
+      el.textContent = String(idx);
     }
   });
 
   document.querySelectorAll('[data-number]').forEach((el) => {
-    const href = el.getAttribute('href') || el.closest('a')?.getAttribute('href');
+    const link = el.closest('a');
+    const href = (link && link.getAttribute('href')) || el.getAttribute('href');
     if (href && href.includes('index.html')) {
       el.setAttribute('data-number', '');
       return;
     }
-    const updated = adjust(el.getAttribute('data-number'));
-    if (updated !== null) {
-      el.setAttribute('data-number', updated);
+    const current = el.getAttribute('data-number');
+    if (!current) {
+      return;
+    }
+    const num = parseInt(current, 10);
+    if (!Number.isNaN(num) && num > 0) {
+      el.setAttribute('data-number', String(num - 1));
     }
   });
-
-  const titleMatch = document.title.match(/^\s*(\d+)\s+(.*)$/);
-  if (titleMatch) {
-    const updated = adjust(titleMatch[1]);
-    if (updated !== null) {
-      document.title = `${updated} ${titleMatch[2]}`;
-    }
-  }
 });
 </script>
