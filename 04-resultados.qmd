@@ -10,3 +10,11 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
   ggplot(mtcars, aes(wt, mpg)) + geom_point()
 }
 ```
+
+## Análisis descriptivo
+
+Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.
+
+## Modelos
+
+Presentación de los resultados de los modelos propuestos, con interpretación y conclusiones.

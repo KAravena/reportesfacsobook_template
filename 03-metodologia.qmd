@@ -17,3 +17,15 @@ library(tidyverse)
 # Resumen estadístico
 summary(mtcars)
 ```
+
+## Datos
+
+Texto de muestra para describir las fuentes de datos utilizadas.
+
+## Variables
+
+Detalle de las variables incluidas en el análisis, así como escalas de medición.
+
+## Métodos
+
+Breve descripción de los procedimientos aplicados para procesar y analizar la información.

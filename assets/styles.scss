@@ -30,7 +30,7 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Noto Serif", Georgia, serif;
+  font-family: "TeX Gyre Termes", "Noto Serif", Georgia, serif;
   line-height: 1.65;
   font-size: 17px;
 }
@@ -315,4 +315,15 @@ nav.page-navigation .nav-page a {
 
 nav.page-navigation .nav-page a:hover {
   color: var(--ink);
+}
+
+.sidebar .sidebar-menu-container .sidebar-section {
+  margin-left: .75rem;
+  border-left: 1px solid rgba(17, 24, 39, 0.08);
+  padding-left: .75rem;
+}
+
+.sidebar .sidebar-menu-container .sidebar-item-toggle {
+  font-size: .85rem;
+  color: var(--ink-soft);
 }

@@ -10,11 +10,10 @@ format:
 ---
 
 ::: {.content-visible when-format="pdf"}
-\small\textbf{Palabras clave:} Sociologia, educacion, Chile
-\normalsize
-:::
+\small\textbf{Palabras clave:} Sociologia, educacion, Chile\
+\normalsize\
 
-# Abstract {.unnumbered}
+:::
 
 ::: {.content-visible when-format="html"}
 <style>
@@ -23,6 +22,8 @@ div[data-when-format="pdf"] { display: none !important; }
 </style>
 <span class="keywords-line"><strong>Palabras clave:</strong> sociologia, educacion, Chile</span>
 :::
+
+# Abstract {.unnumbered}
 
 Resumen en espanol (200-300 paas). Expon proposito, metodo, resultados clave y conclusiones.
 Puede incluir citas como @xie2017bookdown y se actualizaran automaticamente.
