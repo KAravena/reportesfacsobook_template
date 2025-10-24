@@ -16,7 +16,14 @@
   --bs-body-color: var(--ink);
 }
 
+html,
 body {
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  margin: 0;
   background: var(--paper);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -260,6 +267,11 @@ nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-numb
   display: none !important;
 }
 
+.sidebar.sidebar-navigation.docked {
+  border-radius: 0;
+  min-height: 100vh;
+}
+
 /* Encabezados agrupados en la barra lateral */
 .sidebar .sidebar-menu-container .sidebar-heading {
   font-weight: 700;
@@ -292,4 +304,53 @@ nav.quarto-page-breadcrumbs .breadcrumb-item a[href*="index.html"] .chapter-numb
 
 .sidebar .sidebar-menu-container .sidebar-item .chapter-title {
   font-weight: 500;
+}
+
+.quarto-container.page-layout-article {
+  min-height: 100vh;
+  background: var(--paper);
+  display: flex;
+}
+
+.quarto-container.page-layout-article {
+  min-height: 100vh;
+  background: var(--paper);
+  display: flex;
+  align-items: stretch;
+}
+
+.sidebar,
+.quarto-sidebar,
+.quarto-sidebar-collapse-item {
+  border-radius: 0 !important;
+  background: var(--paper);
+}
+
+.sidebar.sidebar-navigation.docked,
+.quarto-container.page-layout-article > nav.sidebar {
+  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.quarto-container.page-layout-article > main.content {
+  min-height: 100vh;
+  flex: 1 1 auto;
+  background: var(--paper);
+}
+
+/* Sidebar layout: ocupa todo el alto sin cortes */
+.sidebar,
+.quarto-sidebar {
+  min-height: 100vh;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .sidebar-menu-container,
+.quarto-sidebar .sidebar-menu-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 0;
 }

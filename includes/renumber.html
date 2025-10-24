@@ -1,7 +1,11 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
+  let counter = 1;
+
   chapterNumbers.forEach((el, idx) => {
+    const value = el.textContent.trim();
+
     if (idx === 0) {
       const sibling = el.nextSibling;
       el.textContent = '';
@@ -9,8 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sibling && sibling.nodeType === Node.TEXT_NODE) {
         sibling.remove();
       }
-    } else {
-      el.textContent = String(idx);
+      return;
+    }
+
+    if (/^\d+$/.test(value)) {
+      el.textContent = String(counter);
+      counter += 1;
     }
   });
 
@@ -21,13 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
       el.setAttribute('data-number', '');
       return;
     }
+
     const current = el.getAttribute('data-number');
-    if (!current) {
+    if (!current || !/^\d+$/.test(current)) {
       return;
     }
+
     const num = parseInt(current, 10);
     if (!Number.isNaN(num) && num > 0) {
-      el.setAttribute('data-number', String(num - 1));
+      el.setAttribute('data-number', String(Math.max(num - 1, 1)));
     }
   });
 });
