@@ -13,7 +13,7 @@ book:
   date: today
   date-format: D [de] MMMM [de] YYYY
   doi: ''
-  favicon: assets/favicon.png
+  favicon: assets/favicon2.png
   sidebar:
     style: docked
     search: true

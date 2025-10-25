@@ -1,8 +1,8 @@
 {
-  "hash": "1fdec9c2325f13c03a70b830ac5e3870",
+  "hash": "3e042453d606161df8bd70a773335322",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Resultados\"\n---\nPresenta hallazgos con tablas y figuras.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n```\n\n::: {.cell-output-display}\n![Relación X^2](04-resultados_files/figure-html/grafico-ejemplo-1.png){width=672}\n:::\n:::\n\n\n## Análisis descriptivo\n\nResumen de las estadísticas descriptivas clave y visualizaciones de apoyo.\n\n## Modelos\n\nPresentación de los resultados de los modelos propuestos, con interpretación y conclusiones.\n",
+    "markdown": "---\ntitle: \"Resultados\"\n---\nPresenta hallazgos con tablas y figuras.\n\n## Análisis descriptivo\n\nResumen de las estadísticas descriptivas clave y visualizaciones de apoyo.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n```\n\n::: {.cell-output-display}\n![Relación X^2](04-resultados_files/figure-html/grafico-ejemplo-1.png){width=672}\n:::\n:::\n\n\n\n## Modelos\n\nPresentación de los resultados de los modelos propuestos, con interpretación y conclusiones.\n",
     "supporting": [
       "04-resultados_files\\figure-html"
     ],

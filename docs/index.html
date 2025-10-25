@@ -86,7 +86,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./00-prefacio.html" rel="next">
-<link href="./assets/favicon.png" rel="icon" type="image/png">
+<link href="./assets/favicon2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">24 de octubre de 2025</p>
+      <p class="date">25 de octubre de 2025</p>
     </div>
   </div>
   
@@ -516,50 +516,115 @@ a[role="doc-biblioref"]:focus-visible {
 </style>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', () => {
-  const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
-  let counter = 1;
+  const isNumeric = (value) => /^\d+$/.test(value);
 
-  chapterNumbers.forEach((el, idx) => {
-    const value = el.textContent.trim();
-
-    if (idx === 0) {
-      const sibling = el.nextSibling;
-      el.textContent = '';
-      el.style.display = 'none';
-      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+  const removeSpacer = (node) => {
+    let sibling = node.nextSibling;
+    while (sibling && sibling.nodeType === Node.TEXT_NODE) {
+      const cleaned = sibling.textContent.replace(/\u00a0/g, '').trim();
+      const next = sibling.nextSibling;
+      if (cleaned.length === 0) {
         sibling.remove();
+        sibling = next;
+      } else {
+        break;
       }
+    }
+  };
+
+  const hideChapterNumber = (el) => {
+    if (!el) return;
+    el.textContent = '';
+    el.classList.add('chapter-number--hidden');
+    el.style.display = 'none';
+    removeSpacer(el);
+  };
+
+  const shiftChapterNumber = (el) => {
+    if (!el) return;
+    const value = (el.textContent || '').trim();
+    if (!isNumeric(value)) {
       return;
     }
-
-    if (/^\d+$/.test(value)) {
-      el.textContent = String(counter);
-      counter += 1;
+    const num = parseInt(value, 10);
+    if (Number.isNaN(num) || num <= 1) {
+      hideChapterNumber(el);
+      return;
     }
+    el.textContent = String(num - 1);
+  };
+
+  const sidebarChapters = document.querySelectorAll('.sidebar .chapter-number');
+  sidebarChapters.forEach((el, idx) => {
+    if (idx === 0) {
+      hideChapterNumber(el);
+    } else {
+      shiftChapterNumber(el);
+    }
+  });
+
+  document.querySelectorAll('.chapter-number').forEach((el) => {
+    if (el.closest('.sidebar')) {
+      return;
+    }
+    shiftChapterNumber(el);
   });
 
   document.querySelectorAll('[data-number]').forEach((el) => {
     const link = el.closest('a');
-    const href = (link && link.getAttribute('href')) || el.getAttribute('href');
-    if (href && href.includes('index.html')) {
+    const href =
+      (link && link.getAttribute('href')) ||
+      el.getAttribute('href') ||
+      '';
+    if (/\/?index\.html(?:#|$)/i.test(href)) {
       el.setAttribute('data-number', '');
       return;
     }
 
     const current = el.getAttribute('data-number');
-    if (!current || !/^\d+$/.test(current)) {
+    if (!current || !isNumeric(current)) {
       return;
     }
 
     const num = parseInt(current, 10);
-    if (!Number.isNaN(num) && num > 0) {
-      el.setAttribute('data-number', String(Math.max(num - 1, 1)));
+    if (Number.isNaN(num) || num <= 1) {
+      el.setAttribute('data-number', '');
+      return;
     }
+
+    el.setAttribute('data-number', String(num - 1));
   });
+
+  const expandMarginToc = () => {
+    const toc = document.getElementById('TOC');
+    if (!toc) return;
+
+    toc.querySelectorAll('ul.collapse').forEach((node) => {
+      node.classList.remove('collapse');
+      node.classList.add('toc-expanded');
+    });
+
+    toc.querySelectorAll('[data-bs-toggle="collapse"]').forEach((trigger) => {
+      trigger.removeAttribute('data-bs-toggle');
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+  };
+
+  expandMarginToc();
 });
 </script>
+<style>
+.chapter-number--hidden {
+  display: none !important;
+}
+.toc-expanded {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

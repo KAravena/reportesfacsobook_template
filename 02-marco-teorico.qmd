@@ -6,32 +6,29 @@ Sintetiza la literatura relevante. Usa referencias como @desmond2019poverty.
 
 ## Marco conceptual
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec.
 
-### Definiciones clave
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec.
 
-- **Concepto A:** Explicación breve del concepto A y su relevancia en el marco teórico.
-- **Concepto B:** Cómo se aplica el concepto B en la presente investigación.
-- **Concepto C:** Descripción del concepto C con referencias relevantes.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec.
+
 
 ### Estudios previos
 
 1. *Autor et al. (2019)* analizan el concepto A en contextos similares, señalando resultados comparables.
 2. *García (2021)* propone un modelo alternativo para interpretar el concepto B, destacando ventajas y limitaciones.
 
-## Modelo explicativo
+### Ejemplos APA 7
 
-### Supuestos del modelo
+Según @desmond2019poverty, los patrones de segregación residencial configuran los límites de oportunidad urbana y permiten introducir la sintaxis de cita narrativa dentro del flujo del texto.
 
-1. El fenómeno se define por la interacción entre los conceptos A y B.
-2. La variable mediadora depende de las condiciones descritas en el concepto C.
-3. Se espera un efecto moderador de la variable contextual sobre los resultados.
+Los matices culturales del gusto pueden reforzar desigualdades cuando se institucionalizan en jerarquías de prestigio académico [@bourdieu2012, p. 35], lo que ilustra la cita parentética con número de página.
 
-### Proposiciones
+Para contrastar hallazgos se pueden reunir múltiples referencias en un mismo paréntesis analítico [@desmond2019poverty; @xie2017bookdown], destacando cómo distintos diseños metodológicos convergen en un mecanismo causal compartido.
 
-- **P1:** Cuando el concepto A está presente, el fenómeno tiende a incrementarse.
-- **P2:** El impacto del concepto B es mayor en presencia de la variable contextual.
-- **P3:** El concepto C modera la relación entre A y B.
+> Las aspiraciones colectivas se negocian constantemente en espacios cotidianos que traducen capital cultural en prácticas concretas, reescribiendo así el mapa de posibilidades percibidas por cada agente social en contextos urbanos desiguales. Este entramado simbólico orienta aspiraciones futuras y limita adaptaciones comunitarias. [@bourdieu2012, p. 87]
+
+
 
 ## Resumen del capítulo
 

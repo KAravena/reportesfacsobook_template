@@ -3,6 +3,10 @@ title: "Resultados"
 ---
 Presenta hallazgos con tablas y figuras.
 
+## Análisis descriptivo
+
+Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.
+
 ```{r grafico-ejemplo}
 #| fig-cap: "Relación X^2"
 if (requireNamespace("ggplot2", quietly = TRUE)) {
@@ -11,9 +15,6 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
 }
 ```
 
-## Análisis descriptivo
-
-Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.
 
 ## Modelos
 

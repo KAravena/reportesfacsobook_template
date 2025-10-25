@@ -7,11 +7,12 @@
 % ---------- KOMA-Script: estilo de titulos y espaciado ----------
 \KOMAoptions{
   headings=big,
-  parskip=never,
+  parskip=half,
   fontsize=11pt,
   appendixprefix=true
 }
 \setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.6em}
 \usepackage{indentfirst}
 
 % ---------- Encabezados y pies (scrlayer-scrpage) ----------
@@ -21,7 +22,12 @@
 \ihead{\pagemark}
 \ohead{\itshape\headmark}
 \setheadsepline{0.4pt}
+\renewcommand*{\chaptermarkformat}{}
 \renewcommand*{\chapterpagestyle}{scrheadings}
+\pagestyle{scrheadings}
+\makeatletter
+\let\ps@plain\ps@scrheadings
+\makeatother
 \cfoot{}
 
 % ---------- Hipervinculos mas sobrios ----------

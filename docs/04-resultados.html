@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./05-discusion.html" rel="next">
 <link href="./03-metodologia.html" rel="prev">
-<link href="./assets/favicon.png" rel="icon" type="image/png">
+<link href="./assets/favicon2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -309,6 +309,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 <p>Presenta hallazgos con tablas y figuras.</p>
+<section id="análisis-descriptivo" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="análisis-descriptivo"><span class="header-section-number">5.1</span> Análisis descriptivo</h2>
+<p>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
@@ -323,9 +326,6 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
 </div>
 </div>
-<section id="análisis-descriptivo" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="análisis-descriptivo"><span class="header-section-number">5.1</span> Análisis descriptivo</h2>
-<p>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</p>
 </section>
 <section id="modelos" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="modelos"><span class="header-section-number">5.2</span> Modelos</h2>
@@ -486,50 +486,115 @@ a[role="doc-biblioref"]:focus-visible {
 </style>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', () => {
-  const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
-  let counter = 1;
+  const isNumeric = (value) => /^\d+$/.test(value);
 
-  chapterNumbers.forEach((el, idx) => {
-    const value = el.textContent.trim();
-
-    if (idx === 0) {
-      const sibling = el.nextSibling;
-      el.textContent = '';
-      el.style.display = 'none';
-      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+  const removeSpacer = (node) => {
+    let sibling = node.nextSibling;
+    while (sibling && sibling.nodeType === Node.TEXT_NODE) {
+      const cleaned = sibling.textContent.replace(/\u00a0/g, '').trim();
+      const next = sibling.nextSibling;
+      if (cleaned.length === 0) {
         sibling.remove();
+        sibling = next;
+      } else {
+        break;
       }
+    }
+  };
+
+  const hideChapterNumber = (el) => {
+    if (!el) return;
+    el.textContent = '';
+    el.classList.add('chapter-number--hidden');
+    el.style.display = 'none';
+    removeSpacer(el);
+  };
+
+  const shiftChapterNumber = (el) => {
+    if (!el) return;
+    const value = (el.textContent || '').trim();
+    if (!isNumeric(value)) {
       return;
     }
-
-    if (/^\d+$/.test(value)) {
-      el.textContent = String(counter);
-      counter += 1;
+    const num = parseInt(value, 10);
+    if (Number.isNaN(num) || num <= 1) {
+      hideChapterNumber(el);
+      return;
     }
+    el.textContent = String(num - 1);
+  };
+
+  const sidebarChapters = document.querySelectorAll('.sidebar .chapter-number');
+  sidebarChapters.forEach((el, idx) => {
+    if (idx === 0) {
+      hideChapterNumber(el);
+    } else {
+      shiftChapterNumber(el);
+    }
+  });
+
+  document.querySelectorAll('.chapter-number').forEach((el) => {
+    if (el.closest('.sidebar')) {
+      return;
+    }
+    shiftChapterNumber(el);
   });
 
   document.querySelectorAll('[data-number]').forEach((el) => {
     const link = el.closest('a');
-    const href = (link && link.getAttribute('href')) || el.getAttribute('href');
-    if (href && href.includes('index.html')) {
+    const href =
+      (link && link.getAttribute('href')) ||
+      el.getAttribute('href') ||
+      '';
+    if (/\/?index\.html(?:#|$)/i.test(href)) {
       el.setAttribute('data-number', '');
       return;
     }
 
     const current = el.getAttribute('data-number');
-    if (!current || !/^\d+$/.test(current)) {
+    if (!current || !isNumeric(current)) {
       return;
     }
 
     const num = parseInt(current, 10);
-    if (!Number.isNaN(num) && num > 0) {
-      el.setAttribute('data-number', String(Math.max(num - 1, 1)));
+    if (Number.isNaN(num) || num <= 1) {
+      el.setAttribute('data-number', '');
+      return;
     }
+
+    el.setAttribute('data-number', String(num - 1));
   });
+
+  const expandMarginToc = () => {
+    const toc = document.getElementById('TOC');
+    if (!toc) return;
+
+    toc.querySelectorAll('ul.collapse').forEach((node) => {
+      node.classList.remove('collapse');
+      node.classList.add('toc-expanded');
+    });
+
+    toc.querySelectorAll('[data-bs-toggle="collapse"]').forEach((trigger) => {
+      trigger.removeAttribute('data-bs-toggle');
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+  };
+
+  expandMarginToc();
 });
 </script>
+<style>
+.chapter-number--hidden {
+  display: none !important;
+}
+.toc-expanded {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1003,21 +1068,22 @@ document.addEventListener('DOMContentLoaded', () => {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Presenta hallazgos con tablas y figuras.</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r grafico-ejemplo}</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relación X^2"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis descriptivo</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis descriptivo</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r grafico-ejemplo}</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relación X^2"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelos</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Presentación de los resultados de los modelos propuestos, con interpretación y conclusiones.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelos</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>Presentación de los resultados de los modelos propuestos, con interpretación y conclusiones.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

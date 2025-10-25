@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./04-resultados.html" rel="next">
 <link href="./02-marco-teorico.html" rel="prev">
-<link href="./assets/favicon.png" rel="icon" type="image/png">
+<link href="./assets/favicon2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -309,6 +309,9 @@ document.addEventListener("DOMContentLoaded", function(){
 </header>
 
 
+<section id="datos" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="datos"><span class="header-section-number">4.1</span> Datos</h2>
+<p>Texto de muestra para describir las fuentes de datos utilizadas.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga paquetes de ejemplo</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
@@ -338,9 +341,6 @@ document.addEventListener("DOMContentLoaded", function(){
  Max.   :1.0000   Max.   :5.000   Max.   :8.000  </code></pre>
 </div>
 </div>
-<section id="datos" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="datos"><span class="header-section-number">4.1</span> Datos</h2>
-<p>Texto de muestra para describir las fuentes de datos utilizadas.</p>
 </section>
 <section id="variables" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="variables"><span class="header-section-number">4.2</span> Variables</h2>
@@ -505,50 +505,115 @@ a[role="doc-biblioref"]:focus-visible {
 </style>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', () => {
-  const chapterNumbers = document.querySelectorAll('.sidebar .chapter-number');
-  let counter = 1;
+  const isNumeric = (value) => /^\d+$/.test(value);
 
-  chapterNumbers.forEach((el, idx) => {
-    const value = el.textContent.trim();
-
-    if (idx === 0) {
-      const sibling = el.nextSibling;
-      el.textContent = '';
-      el.style.display = 'none';
-      if (sibling && sibling.nodeType === Node.TEXT_NODE) {
+  const removeSpacer = (node) => {
+    let sibling = node.nextSibling;
+    while (sibling && sibling.nodeType === Node.TEXT_NODE) {
+      const cleaned = sibling.textContent.replace(/\u00a0/g, '').trim();
+      const next = sibling.nextSibling;
+      if (cleaned.length === 0) {
         sibling.remove();
+        sibling = next;
+      } else {
+        break;
       }
+    }
+  };
+
+  const hideChapterNumber = (el) => {
+    if (!el) return;
+    el.textContent = '';
+    el.classList.add('chapter-number--hidden');
+    el.style.display = 'none';
+    removeSpacer(el);
+  };
+
+  const shiftChapterNumber = (el) => {
+    if (!el) return;
+    const value = (el.textContent || '').trim();
+    if (!isNumeric(value)) {
       return;
     }
-
-    if (/^\d+$/.test(value)) {
-      el.textContent = String(counter);
-      counter += 1;
+    const num = parseInt(value, 10);
+    if (Number.isNaN(num) || num <= 1) {
+      hideChapterNumber(el);
+      return;
     }
+    el.textContent = String(num - 1);
+  };
+
+  const sidebarChapters = document.querySelectorAll('.sidebar .chapter-number');
+  sidebarChapters.forEach((el, idx) => {
+    if (idx === 0) {
+      hideChapterNumber(el);
+    } else {
+      shiftChapterNumber(el);
+    }
+  });
+
+  document.querySelectorAll('.chapter-number').forEach((el) => {
+    if (el.closest('.sidebar')) {
+      return;
+    }
+    shiftChapterNumber(el);
   });
 
   document.querySelectorAll('[data-number]').forEach((el) => {
     const link = el.closest('a');
-    const href = (link && link.getAttribute('href')) || el.getAttribute('href');
-    if (href && href.includes('index.html')) {
+    const href =
+      (link && link.getAttribute('href')) ||
+      el.getAttribute('href') ||
+      '';
+    if (/\/?index\.html(?:#|$)/i.test(href)) {
       el.setAttribute('data-number', '');
       return;
     }
 
     const current = el.getAttribute('data-number');
-    if (!current || !/^\d+$/.test(current)) {
+    if (!current || !isNumeric(current)) {
       return;
     }
 
     const num = parseInt(current, 10);
-    if (!Number.isNaN(num) && num > 0) {
-      el.setAttribute('data-number', String(Math.max(num - 1, 1)));
+    if (Number.isNaN(num) || num <= 1) {
+      el.setAttribute('data-number', '');
+      return;
     }
+
+    el.setAttribute('data-number', String(num - 1));
   });
+
+  const expandMarginToc = () => {
+    const toc = document.getElementById('TOC');
+    if (!toc) return;
+
+    toc.querySelectorAll('ul.collapse').forEach((node) => {
+      node.classList.remove('collapse');
+      node.classList.add('toc-expanded');
+    });
+
+    toc.querySelectorAll('[data-bs-toggle="collapse"]').forEach((trigger) => {
+      trigger.removeAttribute('data-bs-toggle');
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+  };
+
+  expandMarginToc();
 });
 </script>
+<style>
+.chapter-number--hidden {
+  display: none !important;
+}
+.toc-expanded {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+</style>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1021,33 +1086,34 @@ document.addEventListener('DOMContentLoaded', () => {
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Metodología"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cargar-paquetes}</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga paquetes de ejemplo</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r resumen-datos}</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Datos</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Texto de muestra para describir las fuentes de datos utilizadas.</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cargar-paquetes}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga paquetes de ejemplo</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen estadístico</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Datos</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>Texto de muestra para describir las fuentes de datos utilizadas.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r resumen-datos}</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen estadístico</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>Detalle de las variables incluidas en el análisis, así como escalas de medición.</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Métodos</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Breve descripción de los procedimientos aplicados para procesar y analizar la información.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>Detalle de las variables incluidas en el análisis, así como escalas de medición.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Métodos</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>Breve descripción de los procedimientos aplicados para procesar y analizar la información.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

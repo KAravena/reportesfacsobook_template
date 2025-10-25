@@ -2,6 +2,9 @@
 title: "Metodología"
 ---
 
+## Datos
+
+Texto de muestra para describir las fuentes de datos utilizadas.
 ```{r cargar-paquetes}
 #| message: false
 #| warning: false
@@ -18,9 +21,7 @@ library(tidyverse)
 summary(mtcars)
 ```
 
-## Datos
 
-Texto de muestra para describir las fuentes de datos utilizadas.
 
 ## Variables
 
