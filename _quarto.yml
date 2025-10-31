@@ -4,6 +4,8 @@
 project:
   type: book
   output-dir: docs        # Cambia si publicas el libro en otra carpeta (ej. dist/)
+  resources:
+    - assets/favicon-2025.svg  # Asegura que el favicon se copie a docs/
 
 book:
   title: Reportes FACSO - Plantilla Quarto
@@ -28,6 +30,7 @@ book:
   search: true             # Cambia a false si no quieres la caja de busqueda global
   repo-actions: []         # Agrega ['source', 'issue'] si deseas botones de GitHub
   page-navigation: true    # Controla flechas siguiente/anterior en la cabecera
+  favicon: assets/favicon-2025.svg  # Apunta el libro al favicon actualizado
   chapters:
     - index.qmd            # Capitulo inicial o resumen ejecutivo
     - 00-prefacio.qmd
@@ -67,6 +70,7 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header:
+      - includes/favicon.html    # Inserta el favicon actualizado en el <head>
       - includes/logo-link.html   # Inserta enlaces en el encabezado HTML (logo clicable)
       - includes/justify.html     # Ajusta justificacion a nivel global
     include-after-body:
