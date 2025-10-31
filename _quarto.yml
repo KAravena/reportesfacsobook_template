@@ -17,7 +17,6 @@ book:
   date: today              # Usa fecha fija (YYYY-MM-DD) si necesitas control editorial
   date-format: D [de] MMMM [de] YYYY
   doi: ""
-  favicon: assets/favicon.svg # Reemplaza por tu favicon dentro de assets/
   sidebar:
     style: docked
     search: true
