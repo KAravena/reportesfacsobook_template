@@ -124,6 +124,29 @@ document.addEventListener("DOMContentLoaded", function(){
   a.href = 'index.html';
   img.parentNode.insertBefore(a, img);
   a.appendChild(img);
+
+    const ensureDownloadButton = () => {
+      const tools = document.querySelector('.sidebar-title .sidebar-tools-main');
+      if (!tools) {
+        window.requestAnimationFrame(ensureDownloadButton);
+        return;
+      }
+      if (tools.querySelector('[data-template-download]')) {
+        return;
+      }
+      const download = document.createElement('a');
+      download.href = 'https://github.com/KAravena/reportesfacsobook_template/archive/refs/heads/main.zip';
+      download.className = 'quarto-navigation-tool px-1';
+      download.title = 'Descargar plantilla (ZIP)';
+      download.setAttribute('aria-label', 'Descargar plantilla (ZIP)');
+      download.setAttribute('data-template-download', 'true');
+      download.target = '_blank';
+      download.rel = 'noopener';
+      download.innerHTML = '<i class="bi bi-download"></i>';
+      tools.appendChild(download);
+    };
+
+    window.requestAnimationFrame(ensureDownloadButton);
 });
 </script>
 <style>
