@@ -2,6 +2,25 @@
 % ---------- Paquetes tipograficos y microajustes ----------
 \usepackage{microtype}        % mejor interletrado y justificado
 \usepackage{csquotes}         % comillas tipograficas
+\usepackage{iftex}
+\ifPDFTeX\else
+  % Seleccion de fuentes solo cuando XeTeX/LuaTeX esta disponible.
+  \IfFontExistsTF{TeX Gyre Termes}{
+    \setmainfont{TeX Gyre Termes}
+  }{
+    \IfFontExistsTF{Latin Modern Roman}{\setmainfont{Latin Modern Roman}}{}
+  }
+  \IfFontExistsTF{TeX Gyre Heros}{
+    \setsansfont{TeX Gyre Heros}
+  }{
+    \IfFontExistsTF{Latin Modern Sans}{\setsansfont{Latin Modern Sans}}{}
+  }
+  \IfFontExistsTF{TeX Gyre Cursor}{
+    \setmonofont{TeX Gyre Cursor}
+  }{
+    \IfFontExistsTF{Latin Modern Mono}{\setmonofont{Latin Modern Mono}}{}
+  }
+\fi
 \usepackage{enumitem}         % listas compactas
 \setlist{itemsep=.2em, topsep=.2em}
 
