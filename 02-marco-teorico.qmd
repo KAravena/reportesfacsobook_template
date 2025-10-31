@@ -12,12 +12,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligu
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at nulla a ligula volutpat dictum. Sed dictum hendrerit augue, vitae efficitur nisl hendrerit nec.
 
-
-### Estudios previos
-
-1. *Autor et al. (2019)* analizan el concepto A en contextos similares, señalando resultados comparables.
-2. *García (2021)* propone un modelo alternativo para interpretar el concepto B, destacando ventajas y limitaciones.
-
 ### Ejemplos APA 7
 
 Según @desmond2019poverty, los patrones de segregación residencial configuran los límites de oportunidad urbana y permiten introducir la sintaxis de cita narrativa dentro del flujo del texto.

@@ -1,6 +1,7 @@
 ﻿---
 title: ""
 number-sections: false
+numbered: false
 format:
   html:
     title-block-style: none

@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./05-discusion.html" rel="next">
 <link href="./03-metodologia.html" rel="prev">
-<link href="./assets/favicon2.png" rel="icon" type="image/png">
+<link href="./assets/file.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -147,6 +147,17 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 </script>
+<style>
+#quarto-document-content p,
+.page-columns .content p,
+.page-columns p,
+.quarto-article p,
+main.content p,
+p {
+  text-align: justify !important;
+  text-justify: inter-word;
+}
+</style>
 
 
 <link rel="stylesheet" href="assets/styles.scss">
@@ -281,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#análisis-descriptivo" id="toc-análisis-descriptivo" class="nav-link active" data-scroll-target="#análisis-descriptivo"><span class="header-section-number">5.1</span> Análisis descriptivo</a></li>
+  <li><a href="#analisis-descriptivo" id="toc-analisis-descriptivo" class="nav-link active" data-scroll-target="#analisis-descriptivo"><span class="header-section-number">5.1</span> Analisis descriptivo</a></li>
   <li><a href="#modelos" id="toc-modelos" class="nav-link" data-scroll-target="#modelos"><span class="header-section-number">5.2</span> Modelos</a></li>
   </ul>
 </nav>
@@ -308,10 +319,9 @@ document.addEventListener("DOMContentLoaded", function(){
 </header>
 
 
-<p>Presenta hallazgos con tablas y figuras.</p>
-<section id="análisis-descriptivo" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="análisis-descriptivo"><span class="header-section-number">5.1</span> Análisis descriptivo</h2>
-<p>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</p>
+<section id="analisis-descriptivo" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="analisis-descriptivo"><span class="header-section-number">5.1</span> Analisis descriptivo</h2>
+<p>Resumen de las estadisticas descriptivas clave y visualizaciones de apoyo.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
@@ -321,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function(){
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="04-resultados_files/figure-html/grafico-ejemplo-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Relación X^2</figcaption>
+<figcaption>Relacion X^2</figcaption>
 </figure>
 </div>
 </div>
@@ -329,7 +339,545 @@ document.addEventListener("DOMContentLoaded", function(){
 </section>
 <section id="modelos" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="modelos"><span class="header-section-number">5.2</span> Modelos</h2>
-<p>Presentación de los resultados de los modelos propuestos, con interpretación y conclusiones.</p>
+<p>Presentacion de los resultados de los modelos propuestos, con interpretacion y conclusiones.</p>
+<div class="cell" data-tbl-cap="Resumen comparativo de modelos" data-tbl-label="tbl-modelos">
+<div class="cell-output-display">
+<div id="hcgrdwndop" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#hcgrdwndop table {
+  font-family: 'Source Sans Pro', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#hcgrdwndop thead, #hcgrdwndop tbody, #hcgrdwndop tfoot, #hcgrdwndop tr, #hcgrdwndop td, #hcgrdwndop th {
+  border-style: none;
+}
+
+#hcgrdwndop p {
+  margin: 0;
+  padding: 0;
+}
+
+#hcgrdwndop .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 85%;
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: #000000;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hcgrdwndop .gt_title {
+  color: #333333;
+  font-size: 16px;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hcgrdwndop .gt_subtitle {
+  color: #333333;
+  font-size: 11px;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hcgrdwndop .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 1.2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1.2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#hcgrdwndop .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#hcgrdwndop .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#hcgrdwndop .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#hcgrdwndop .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 1.2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#hcgrdwndop .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#hcgrdwndop .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#hcgrdwndop .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#hcgrdwndop .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hcgrdwndop .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hcgrdwndop .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hcgrdwndop .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcgrdwndop .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#hcgrdwndop .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#hcgrdwndop .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#hcgrdwndop .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcgrdwndop .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#hcgrdwndop .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcgrdwndop .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#hcgrdwndop .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcgrdwndop .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#hcgrdwndop .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hcgrdwndop .gt_left {
+  text-align: left;
+}
+
+#hcgrdwndop .gt_center {
+  text-align: center;
+}
+
+#hcgrdwndop .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hcgrdwndop .gt_font_normal {
+  font-weight: normal;
+}
+
+#hcgrdwndop .gt_font_bold {
+  font-weight: bold;
+}
+
+#hcgrdwndop .gt_font_italic {
+  font-style: italic;
+}
+
+#hcgrdwndop .gt_super {
+  font-size: 65%;
+}
+
+#hcgrdwndop .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#hcgrdwndop .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#hcgrdwndop .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#hcgrdwndop .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#hcgrdwndop .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#hcgrdwndop .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#hcgrdwndop .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#hcgrdwndop .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hcgrdwndop div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption>Resumen comparativo de modelos</caption>
+<thead>
+<tr class="gt_heading header">
+<td colspan="7" class="gt_heading gt_title gt_font_normal"><strong>Resultados del modelo de regresiÃ³n</strong></td>
+</tr>
+<tr class="gt_heading even">
+<td colspan="7" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Coeficientes estimados para mpg ~ wt + hp</td>
+</tr>
+<tr class="gt_col_headings header">
+<th id="Predictor" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Predictor</th>
+<th id="Coef." class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Coef.</th>
+<th id="Std.-Err." class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Std. Err.</th>
+<th id="t-valor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">t-valor</th>
+<th id="p-valor" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">p-valor</th>
+<th id="Sig." class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Sig.</th>
+<th id="IC-95-%" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">IC 95 %</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Predictor">Constante</td>
+<td class="gt_row gt_center" headers="Coef.">37.227</td>
+<td class="gt_row gt_center" headers="Std. Err.">1.599</td>
+<td class="gt_row gt_center" headers="t-valor">23.28</td>
+<td class="gt_row gt_center" headers="p-valor">&amp;lt;0.001</td>
+<td class="gt_row gt_center" headers="Sig.">***</td>
+<td class="gt_row gt_center" headers="IC 95 %">[33.957, 40.497]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Predictor">Capital social barrial</td>
+<td class="gt_row gt_center" headers="Coef.">-3.878</td>
+<td class="gt_row gt_center" headers="Std. Err.">0.633</td>
+<td class="gt_row gt_center" headers="t-valor">-6.13</td>
+<td class="gt_row gt_center" headers="p-valor">&amp;lt;0.001</td>
+<td class="gt_row gt_center" headers="Sig.">***</td>
+<td class="gt_row gt_center" headers="IC 95 %">[-5.172, -2.584]</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Predictor">Precariedad laboral</td>
+<td class="gt_row gt_center" headers="Coef.">-0.032</td>
+<td class="gt_row gt_center" headers="Std. Err.">0.009</td>
+<td class="gt_row gt_center" headers="t-valor">-3.52</td>
+<td class="gt_row gt_center" headers="p-valor">0.001</td>
+<td class="gt_row gt_center" headers="Sig.">**</td>
+<td class="gt_row gt_center" headers="IC 95 %">[-0.050, -0.013]</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Predictor">N</td>
+<td class="gt_row gt_center" headers="Coef.">32</td>
+<td class="gt_row gt_center" headers="Std. Err."></td>
+<td class="gt_row gt_center" headers="t-valor"></td>
+<td class="gt_row gt_center" headers="p-valor"></td>
+<td class="gt_row gt_center" headers="Sig."></td>
+<td class="gt_row gt_center" headers="IC 95 %"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Predictor">R^2</td>
+<td class="gt_row gt_center" headers="Coef.">0.827</td>
+<td class="gt_row gt_center" headers="Std. Err."></td>
+<td class="gt_row gt_center" headers="t-valor"></td>
+<td class="gt_row gt_center" headers="p-valor"></td>
+<td class="gt_row gt_center" headers="Sig."></td>
+<td class="gt_row gt_center" headers="IC 95 %"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Predictor">R^2 ajustado</td>
+<td class="gt_row gt_center" headers="Coef.">0.815</td>
+<td class="gt_row gt_center" headers="Std. Err."></td>
+<td class="gt_row gt_center" headers="t-valor"></td>
+<td class="gt_row gt_center" headers="p-valor"></td>
+<td class="gt_row gt_center" headers="Sig."></td>
+<td class="gt_row gt_center" headers="IC 95 %"></td>
+</tr>
+</tbody><tfoot class="gt_sourcenotes">
+<tr class="odd">
+<td colspan="7" class="gt_sourcenote">Notas: *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05, . p &lt; 0.10</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -486,13 +1034,35 @@ a[role="doc-biblioref"]:focus-visible {
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const isNumeric = (value) => /^\d+$/.test(value);
+document.addEventListener("DOMContentLoaded", () => {
+  const parseNumberParts = (value) =>
+    (value || "")
+      .split(".")
+      .map((part) => parseInt(part, 10))
+      .filter((num) => !Number.isNaN(num));
+
+  const formatNumberParts = (parts) => parts.join(".");
+
+  const adjustNumber = (value) => {
+    const trimmed = (value || "").trim();
+    if (!/^\d/.test(trimmed)) {
+      return trimmed;
+    }
+    const parts = parseNumberParts(trimmed);
+    if (!parts.length) {
+      return "";
+    }
+  parts[0] = parts[0] - 1;
+    if (parts[0] <= 0) {
+      return "";
+    }
+    return formatNumberParts(parts);
+  };
 
   const removeSpacer = (node) => {
     let sibling = node.nextSibling;
     while (sibling && sibling.nodeType === Node.TEXT_NODE) {
-      const cleaned = sibling.textContent.replace(/\u00a0/g, '').trim();
+      const cleaned = sibling.textContent.replace(/\u00a0/g, "").trim();
       const next = sibling.nextSibling;
       if (cleaned.length === 0) {
         sibling.remove();
@@ -503,81 +1073,151 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const hideChapterNumber = (el) => {
-    if (!el) return;
-    el.textContent = '';
-    el.classList.add('chapter-number--hidden');
-    el.style.display = 'none';
-    removeSpacer(el);
+  const clearNumber = (node) => {
+    if (!node) return;
+    node.textContent = "";
+    node.classList.add("chapter-number--hidden");
+    node.style.display = "none";
+    removeSpacer(node);
   };
 
-  const shiftChapterNumber = (el) => {
-    if (!el) return;
-    const value = (el.textContent || '').trim();
-    if (!isNumeric(value)) {
-      return;
+  const ensureChapterSpacing = (node) => {
+    if (!node || !node.classList.contains("chapter-number")) return;
+
+    let numeric = (node.textContent || "").replace(/\.+\s*$/u, "");
+    if (!numeric) return;
+
+    node.textContent = numeric;
+
+    const contextsNeedingSpace = node.closest(".quarto-title-block") ||
+      node.closest("nav.quarto-page-breadcrumbs");
+
+    node.textContent = `${numeric}.`;
+
+    if (contextsNeedingSpace) {
+      const next = node.nextSibling;
+      const hasWhitespaceText =
+        next &&
+        next.nodeType === Node.TEXT_NODE &&
+        /\s/.test(next.textContent || "");
+      if (!hasWhitespaceText) {
+        node.insertAdjacentText("afterend", "\u00a0");
+      }
     }
-    const num = parseInt(value, 10);
-    if (Number.isNaN(num) || num <= 1) {
-      hideChapterNumber(el);
-      return;
-    }
-    el.textContent = String(num - 1);
   };
 
-  const sidebarChapters = document.querySelectorAll('.sidebar .chapter-number');
-  sidebarChapters.forEach((el, idx) => {
-    if (idx === 0) {
-      hideChapterNumber(el);
+  const applyNumber = (node) => {
+    if (!node) return;
+    const adjusted = adjustNumber(node.textContent);
+    if (!adjusted) {
+      clearNumber(node);
     } else {
-      shiftChapterNumber(el);
+      node.textContent = adjusted;
+      node.classList.remove("chapter-number--hidden");
+      node.style.display = "inline-block";
+      removeSpacer(node);
+      ensureChapterSpacing(node);
     }
-  });
+  };
 
-  document.querySelectorAll('.chapter-number').forEach((el) => {
-    if (el.closest('.sidebar')) {
-      return;
+  const updateDataNumber = (node) => {
+    const current = node.getAttribute("data-number");
+    if (current === null) return;
+    const adjusted = adjustNumber(current);
+    if (adjusted) {
+      node.setAttribute("data-number", adjusted);
+    } else {
+      node.removeAttribute("data-number");
     }
-    shiftChapterNumber(el);
-  });
+  };
 
-  document.querySelectorAll('[data-number]').forEach((el) => {
-    const link = el.closest('a');
-    const href =
-      (link && link.getAttribute('href')) ||
-      el.getAttribute('href') ||
-      '';
-    if (/\/?index\.html(?:#|$)/i.test(href)) {
-      el.setAttribute('data-number', '');
-      return;
-    }
+  const isFrontMatterHref = (href) =>
+    /\/?index\.html(?:#|$)/i.test(href || "") ||
+    /\/?00-prefacio\.html(?:#|$)/i.test(href || "");
 
-    const current = el.getAttribute('data-number');
-    if (!current || !isNumeric(current)) {
-      return;
-    }
-
-    const num = parseInt(current, 10);
-    if (Number.isNaN(num) || num <= 1) {
-      el.setAttribute('data-number', '');
-      return;
-    }
-
-    el.setAttribute('data-number', String(num - 1));
-  });
-
-  const expandMarginToc = () => {
-    const toc = document.getElementById('TOC');
-    if (!toc) return;
-
-    toc.querySelectorAll('ul.collapse').forEach((node) => {
-      node.classList.remove('collapse');
-      node.classList.add('toc-expanded');
+  document
+    .querySelectorAll(".sidebar .chapter-number")
+    .forEach((node) => {
+      const link = node.closest("a");
+      const href = link ? link.getAttribute("href") : "";
+      if (isFrontMatterHref(href)) {
+        clearNumber(node);
+      } else {
+        applyNumber(node);
+      }
     });
 
-    toc.querySelectorAll('[data-bs-toggle="collapse"]').forEach((trigger) => {
-      trigger.removeAttribute('data-bs-toggle');
-      trigger.setAttribute('aria-expanded', 'true');
+  const pathname = window.location.pathname || "";
+
+  document
+    .querySelectorAll('.quarto-title-block .chapter-number')
+    .forEach((node) => {
+      if (isFrontMatterHref(pathname)) {
+        clearNumber(node);
+      } else {
+        applyNumber(node);
+      }
+    });
+
+  document
+    .querySelectorAll('nav.quarto-page-breadcrumbs .chapter-number')
+    .forEach((node) => {
+      const link = node.closest('a');
+      const href = link ? link.getAttribute('href') : pathname;
+      if (isFrontMatterHref(href)) {
+        clearNumber(node);
+      } else {
+        applyNumber(node);
+      }
+    });
+
+  document
+    .querySelectorAll("main .header-section-number")
+    .forEach((node) => {
+      if (isFrontMatterHref(pathname)) {
+        const section = node.closest("section");
+        if (section && section.matches(".level1:first-of-type, .level2:first-of-type")) {
+          clearNumber(node);
+          return;
+        }
+      }
+      applyNumber(node);
+    });
+
+  document
+    .querySelectorAll("main [data-number]")
+    .forEach(updateDataNumber);
+
+  document
+    .querySelectorAll("#TOC .header-section-number")
+    .forEach((node) => {
+      const link = node.closest("a");
+      const href = link ? link.getAttribute("href") : "";
+      if (isFrontMatterHref(href)) {
+        clearNumber(node);
+      } else {
+        applyNumber(node);
+      }
+    });
+
+  document
+    .querySelectorAll("#TOC [data-number]")
+    .forEach(updateDataNumber);
+
+  document
+    .querySelectorAll('#TOC a[data-scroll-target][data-number]')
+    .forEach(updateDataNumber);
+
+  const expandMarginToc = () => {
+    const toc = document.getElementById("TOC");
+    if (!toc) return;
+    toc.querySelectorAll("ul.collapse").forEach((node) => {
+      node.classList.remove("collapse");
+      node.classList.add("toc-expanded");
+    });
+    toc.querySelectorAll("[data-bs-toggle='collapse']").forEach((trigger) => {
+      trigger.removeAttribute("data-bs-toggle");
+      trigger.setAttribute("aria-expanded", "true");
     });
   };
 
@@ -585,7 +1225,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <style>
+.sidebar .chapter-number {
+  display: inline-block;
+  min-width: 1ch;
+  margin-right: 0.1ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
 .chapter-number--hidden {
+  visibility: hidden !important;
   display: none !important;
 }
 .toc-expanded {
@@ -595,6 +1243,259 @@ document.addEventListener('DOMContentLoaded', () => {
   overflow: visible !important;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const codeSelectors = [
+    '.cell > .code-copy-outer-scaffold',
+    '.cell > .sourceCode',
+    'pre.sourceCode',
+    'div.sourceCode'
+  ];
+
+  const LABEL_SHOW = 'Mostrar el codigo';
+  const LABEL_HIDE = 'Ocultar el codigo';
+  const LABEL_EMPTY = 'Sin fragmentos de codigo';
+  const ICON_SHOW = 'bi bi-code';
+  const ICON_HIDE = 'bi bi-code-slash';
+
+  const toolsContainer = document.querySelector('.sidebar-tools-main');
+  let buttonHost = toolsContainer;
+  let floatingContainer = null;
+
+  if (!buttonHost) {
+    floatingContainer = document.createElement('div');
+    floatingContainer.className = 'global-code-toggle-container';
+    document.body.appendChild(floatingContainer);
+    buttonHost = floatingContainer;
+  }
+
+  const repoLink = toolsContainer ? toolsContainer.querySelector('a[href*="github.com"]') : null;
+  if (repoLink) {
+    repoLink.title = 'Repositorio';
+    repoLink.setAttribute('aria-label', 'Repositorio');
+  }
+
+  const button = document.createElement('a');
+  button.href = '#';
+  button.className = 'quarto-navigation-tool px-1 global-code-toggle';
+  button.setAttribute('role', 'button');
+
+  if (!toolsContainer) {
+    button.classList.add('global-code-toggle-floating');
+  }
+
+  const icon = document.createElement('i');
+  icon.className = ICON_HIDE;
+  button.appendChild(icon);
+
+  const pdfLink = toolsContainer ? toolsContainer.querySelector('a[href$=".pdf"]') : null;
+  if (pdfLink && buttonHost === toolsContainer) {
+    buttonHost.insertBefore(button, pdfLink);
+  } else {
+    buttonHost.appendChild(button);
+  }
+
+  const pageHasCode = codeSelectors.some(function (selector) {
+    return document.querySelector(selector);
+  });
+
+  let showingCode = true;
+
+  const setIcon = function (iconClass) {
+    icon.className = iconClass;
+  };
+
+  const disableButton = function () {
+    button.classList.add('global-code-toggle-disabled');
+    button.classList.add('disabled');
+    button.setAttribute('aria-disabled', 'true');
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-label', LABEL_EMPTY);
+    button.title = LABEL_EMPTY;
+    button.tabIndex = -1;
+    setIcon(ICON_SHOW);
+  };
+
+  const enableButton = function () {
+    button.classList.remove('global-code-toggle-disabled');
+    button.classList.remove('disabled');
+    button.removeAttribute('aria-disabled');
+    button.tabIndex = 0;
+  };
+
+  const update = function () {
+    if (!pageHasCode) {
+      disableButton();
+      document.body.classList.remove('global-code-hidden');
+      return;
+    }
+
+    enableButton();
+
+    if (showingCode) {
+      document.body.classList.remove('global-code-hidden');
+      button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', LABEL_HIDE);
+      button.title = LABEL_HIDE;
+      setIcon(ICON_HIDE);
+    } else {
+      document.body.classList.add('global-code-hidden');
+      button.setAttribute('aria-pressed', 'true');
+      button.setAttribute('aria-label', LABEL_SHOW);
+      button.title = LABEL_SHOW;
+      setIcon(ICON_SHOW);
+    }
+  };
+
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    if (!pageHasCode) {
+      return;
+    }
+
+    showingCode = !showingCode;
+    update();
+  });
+
+  button.addEventListener('keydown', function (event) {
+    if (event.key === ' ' || event.key === 'Spacebar') {
+      event.preventDefault();
+      button.click();
+    }
+  });
+
+  update();
+});
+</script>
+<style>
+body.global-code-hidden .cell > .code-copy-outer-scaffold,
+body.global-code-hidden .cell > .sourceCode,
+body.global-code-hidden pre.sourceCode,
+body.global-code-hidden div.sourceCode {
+  display: none;
+}
+
+.global-code-toggle {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.global-code-toggle i {
+  font-size: 1.05rem;
+}
+
+.global-code-toggle-disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+
+.global-code-toggle-container {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1030;
+}
+
+.global-code-toggle-floating {
+  background-color: var(--bs-body-bg, #ffffff);
+  border-radius: 0.375rem;
+  padding: 0.4rem 0.55rem;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+}
+
+.global-code-toggle-floating i {
+  font-size: 1.15rem;
+}
+
+@media (max-width: 768px) {
+  .global-code-toggle-container {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toc = document.querySelector("nav#TOC, nav.toc-active");
+  if (!toc) {
+    return;
+  }
+
+  const tocLinks = toc.querySelectorAll("a.nav-link[data-scroll-target]");
+  if (!tocLinks.length) {
+    return;
+  }
+
+  const sections = Array.from(tocLinks)
+    .map((link) => {
+      const target = document.querySelector(link.getAttribute("data-scroll-target"));
+      return target ? { link, target, top: 0 } : null;
+    })
+    .filter(Boolean);
+
+  const updateOffsets = () => {
+    sections.forEach((section) => {
+      section.top = section.target.getBoundingClientRect().top + window.scrollY;
+    });
+  };
+
+  const activateLink = (targetLink) => {
+    tocLinks.forEach((link) => link.classList.remove("active"));
+    if (targetLink) {
+      targetLink.classList.add("active");
+    }
+  };
+
+  const OFFSET = 140;
+  let ticking = false;
+
+  const updateActiveSection = () => {
+    const scrollPosition = window.scrollY + OFFSET;
+    let current = sections[0];
+
+    for (const section of sections) {
+      if (section.top <= scrollPosition) {
+        current = section;
+      } else {
+        break;
+      }
+    }
+
+    activateLink(current ? current.link : null);
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateActiveSection);
+      ticking = true;
+    }
+  };
+
+  updateOffsets();
+  updateActiveSection();
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    updateOffsets();
+    updateActiveSection();
+  });
+
+  window.addEventListener("hashchange", () => {
+    const hash = window.location.hash;
+    const match = sections.find((section) => section.link.getAttribute("data-scroll-target") === hash);
+    if (match) {
+      activateLink(match.link);
+    }
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1066,24 +1967,139 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Resultados"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Presenta hallazgos con tablas y figuras.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analisis descriptivo</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Análisis descriptivo</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Resumen de las estadísticas descriptivas clave y visualizaciones de apoyo.</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{r grafico-ejemplo}</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relación X^2"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Resumen de las estadisticas descriptivas clave y visualizaciones de apoyo.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r grafico-ejemplo}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relacion X^2"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelos</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelos</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>Presentación de los resultados de los modelos propuestos, con interpretación y conclusiones.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Presentacion de los resultados de los modelos propuestos, con interpretacion y conclusiones.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{r ejemplo-modelo-tabla}</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Resumen comparativo de modelos"</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-label: tbl-modelos</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"broom"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>) <span class="sc">&amp;&amp;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">requireNamespace</span>(<span class="st">"dplyr"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>) <span class="sc">&amp;&amp;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">requireNamespace</span>(<span class="st">"tibble"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(broom)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tibble)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> hp, <span class="at">data =</span> mtcars)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  tabla <span class="ot">&lt;-</span> <span class="fu">tidy</span>(modelo, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">term =</span> <span class="fu">recode</span>(</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        term,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Constante"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">"wt"</span> <span class="ot">=</span> <span class="st">"Capital social barrial"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">"hp"</span> <span class="ot">=</span> <span class="st">"Precariedad laboral"</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Coef.</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%0.3f"</span>, estimate),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Std. Err.</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%0.3f"</span>, std.error),</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">t-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"%0.2f"</span>, statistic),</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">p_valor_num =</span> p.value,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">if_else</span>(p.value <span class="sc">&lt;</span> <span class="fl">0.001</span>, <span class="st">"&lt;0.001"</span>, <span class="fu">sprintf</span>(<span class="st">"%0.3f"</span>, p.value)),</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Sig.</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"***"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"**"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">"*"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        p.value <span class="sc">&lt;</span> <span class="fl">0.1</span> <span class="sc">~</span> <span class="st">"."</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">IC 95 %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">"[%0.3f, %0.3f]"</span>, conf.low, conf.high)</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="at">Predictor =</span> term, <span class="st">`</span><span class="at">Coef.</span><span class="st">`</span>, <span class="st">`</span><span class="at">Std. Err.</span><span class="st">`</span>, <span class="st">`</span><span class="at">t-valor</span><span class="st">`</span>, <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span>, <span class="st">`</span><span class="at">Sig.</span><span class="st">`</span>, <span class="st">`</span><span class="at">IC 95 %</span><span class="st">`</span>, p_valor_num)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  gof <span class="ot">&lt;-</span> <span class="fu">glance</span>(modelo)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  tabla <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    tabla,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="at">Predictor =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"R^2"</span>, <span class="st">"R^2 ajustado"</span>),</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Coef.</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"%0.0f"</span>, gof<span class="sc">$</span>nobs), <span class="fu">sprintf</span>(<span class="st">"%0.3f"</span>, gof<span class="sc">$</span>r.squared), <span class="fu">sprintf</span>(<span class="st">"%0.3f"</span>, gof<span class="sc">$</span>adj.r.squared)),</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Std. Err.</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">t-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Sig.</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">IC 95 %</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="at">p_valor_num =</span> <span class="cn">NA_real_</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (knitr<span class="sc">::</span><span class="fu">is_latex_output</span>()) {</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    tabla_latex <span class="ot">&lt;-</span> <span class="fu">select</span>(tabla, <span class="sc">-</span>p_valor_num)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>      tabla_latex,</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"pipe"</span>,</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>      <span class="at">escape =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>, <span class="fu">ncol</span>(tabla_latex) <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">requireNamespace</span>(<span class="st">"gt"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    tabla_display <span class="ot">&lt;-</span> tabla <span class="sc">|&gt;</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="st">`</span><span class="at">p-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">gsub</span>(<span class="st">"&lt;"</span>, <span class="st">"&amp;lt;"</span>, <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">-</span>p_valor_num)</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">gt</span>(tabla_display) <span class="sc">|&gt;</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"**Resultados del modelo de regresiÃ³n**"</span>),</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"Coeficientes estimados para mpg ~ wt + hp"</span>)</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>        <span class="at">Predictor =</span> <span class="st">"Predictor"</span>,</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Coef.</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Coef."</span>,</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Std. Err.</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Std. Err."</span>,</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">t-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"t-valor"</span>,</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"p-valor"</span>,</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">Sig.</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Sig."</span>,</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>        <span class="st">`</span><span class="at">IC 95 %</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"IC 95 %"</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">cols_align</span>(<span class="at">align =</span> <span class="st">"center"</span>, <span class="at">columns =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Coef.</span><span class="st">`</span>, <span class="st">`</span><span class="at">Std. Err.</span><span class="st">`</span>, <span class="st">`</span><span class="at">t-valor</span><span class="st">`</span>, <span class="st">`</span><span class="at">p-valor</span><span class="st">`</span>, <span class="st">`</span><span class="at">Sig.</span><span class="st">`</span>, <span class="st">`</span><span class="at">IC 95 %</span><span class="st">`</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">cols_align</span>(<span class="at">align =</span> <span class="st">"left"</span>, <span class="at">columns =</span> Predictor) <span class="sc">|&gt;</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">tab_options</span>(</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.width =</span> gt<span class="sc">::</span><span class="fu">pct</span>(<span class="dv">85</span>),</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>        <span class="at">heading.title.font.size =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="dv">16</span>),</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>        <span class="at">heading.subtitle.font.size =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="dv">11</span>),</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.border.top.width =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="fl">1.5</span>),</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.border.top.color =</span> <span class="st">"#000000"</span>,</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.border.bottom.width =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="fl">1.5</span>),</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.border.bottom.color =</span> <span class="st">"#000000"</span>,</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_labels.border.top.width =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="fl">1.2</span>),</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_labels.border.top.color =</span> <span class="st">"#000000"</span>,</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_labels.border.bottom.width =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="fl">1.2</span>),</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_labels.border.bottom.color =</span> <span class="st">"#000000"</span>,</span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>        <span class="at">data_row.padding =</span> gt<span class="sc">::</span><span class="fu">px</span>(<span class="dv">4</span>),</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>        <span class="at">table.font.size =</span> <span class="dv">13</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">opt_table_font</span>(</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>        <span class="at">font =</span> <span class="fu">list</span>(</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>          gt<span class="sc">::</span><span class="fu">google_font</span>(<span class="st">"Source Sans Pro"</span>),</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>          gt<span class="sc">::</span><span class="fu">default_fonts</span>()</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>      gt<span class="sc">::</span><span class="fu">tab_source_note</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"Notas: *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05, . p &lt; 0.10"</span>))</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    tabla_ligera <span class="ot">&lt;-</span> <span class="fu">select</span>(tabla, <span class="sc">-</span>p_valor_num)</span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>      tabla_ligera,</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>      <span class="at">escape =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="fu">rep</span>(<span class="st">"c"</span>, <span class="fu">ncol</span>(tabla_ligera) <span class="sc">-</span> <span class="dv">1</span>)),</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>      <span class="at">table.attr =</span> <span class="st">"class='table table-sm table-striped align-middle w-100'"</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

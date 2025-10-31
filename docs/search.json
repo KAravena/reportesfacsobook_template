@@ -24,7 +24,7 @@
     "href": "01-introduccion.html",
     "title": "2  Introducción",
     "section": "",
-    "text": "Motivación, preguntas de investigación, contribución esperada y estructura del documento.",
+    "text": "Motivación, preguntas de investigación, Objetivo general y específicos, contribución esperada, estructura del documento.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "02-marco-teorico.html#marco-conceptual",
     "title": "3  Antecedentes conceptuales y empíricos",
     "section": "",
-    "text": "3.1.1 Estudios previos\n\nAutor et al. (2019) analizan el concepto A en contextos similares, señalando resultados comparables.\nGarcía (2021) propone un modelo alternativo para interpretar el concepto B, destacando ventajas y limitaciones.\n\n\n\n3.1.2 Ejemplos APA 7\nSegún Desmond & Wilmers (2019), los patrones de segregación residencial configuran los límites de oportunidad urbana y permiten introducir la sintaxis de cita narrativa dentro del flujo del texto.\nLos matices culturales del gusto pueden reforzar desigualdades cuando se institucionalizan en jerarquías de prestigio académico (Bourdieu, 2012, p. 35), lo que ilustra la cita parentética con número de página.\nPara contrastar hallazgos se pueden reunir múltiples referencias en un mismo paréntesis analítico (Desmond & Wilmers, 2019; Xie, 2017), destacando cómo distintos diseños metodológicos convergen en un mecanismo causal compartido.\n\nLas aspiraciones colectivas se negocian constantemente en espacios cotidianos que traducen capital cultural en prácticas concretas, reescribiendo así el mapa de posibilidades percibidas por cada agente social en contextos urbanos desiguales. Este entramado simbólico orienta aspiraciones futuras y limita adaptaciones comunitarias. (Bourdieu, 2012, p. 87)",
+    "text": "3.1.1 Ejemplos APA 7\nSegún Desmond & Wilmers (2019), los patrones de segregación residencial configuran los límites de oportunidad urbana y permiten introducir la sintaxis de cita narrativa dentro del flujo del texto.\nLos matices culturales del gusto pueden reforzar desigualdades cuando se institucionalizan en jerarquías de prestigio académico (Bourdieu, 2012, p. 35), lo que ilustra la cita parentética con número de página.\nPara contrastar hallazgos se pueden reunir múltiples referencias en un mismo paréntesis analítico (Desmond & Wilmers, 2019; Xie, 2017), destacando cómo distintos diseños metodológicos convergen en un mecanismo causal compartido.\n\nLas aspiraciones colectivas se negocian constantemente en espacios cotidianos que traducen capital cultural en prácticas concretas, reescribiendo así el mapa de posibilidades percibidas por cada agente social en contextos urbanos desiguales. Este entramado simbólico orienta aspiraciones futuras y limita adaptaciones comunitarias. (Bourdieu, 2012, p. 87)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Antecedentes conceptuales y empíricos</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "03-metodologia.html#variables",
     "title": "4  Metodología",
     "section": "4.2 Variables",
-    "text": "4.2 Variables\nDetalle de las variables incluidas en el análisis, así como escalas de medición.",
+    "text": "4.2 Variables\nDetalle de las variables incluidas en el análisis, así como escalas de medición.\n\n\n\n\n\n\nEstadísticas descriptivas por variable (ejemplo)\n\n\nEstadísticas descriptivas de ejemplo\n\n\nVariables seleccionadas del conjunto mtcars\n\n\nStatistic\nN\nMean\nSt. Dev.\nMin\nMax\n\n\n\n\nIngreso per cápita (mensual)\n32\n20.091\n6.027\n10.400\n33.900\n\n\nCapital social barrial\n32\n3.217\n0.978\n1.513\n5.424\n\n\nPrecariedad laboral\n32\n146.688\n68.563\n52.000\n335.000\n\n\nCapital institucional\n32\n3.597\n0.535\n2.760\n4.930\n\n\nParticipación comunitaria\n32\n17.849\n1.787\n14.500\n22.900\n\n\n\nNotas: resumen ilustrativo basado en datos mtcars.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Metodología</span>"
     ]
@@ -94,7 +94,7 @@
     "href": "04-resultados.html",
     "title": "5  Resultados",
     "section": "",
-    "text": "5.1 Análisis descriptivo\nPresenta hallazgos con tablas y figuras.\nResumen de las estadísticas descriptivas clave y visualizaciones de apoyo.\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n\n\n\n\nRelación X^2",
+    "text": "5.1 Analisis descriptivo\nResumen de las estadisticas descriptivas clave y visualizaciones de apoyo.\nif (requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  library(ggplot2)\n  ggplot(mtcars, aes(wt, mpg)) + geom_point()\n}\n\n\n\n\nRelacion X^2",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Resultados</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "04-resultados.html#modelos",
     "title": "5  Resultados",
     "section": "5.2 Modelos",
-    "text": "5.2 Modelos\nPresentación de los resultados de los modelos propuestos, con interpretación y conclusiones.",
+    "text": "5.2 Modelos\nPresentacion de los resultados de los modelos propuestos, con interpretacion y conclusiones.\n\n\n\n\n\n\nResumen comparativo de modelos\n\n\nResultados del modelo de regresiÃ³n\n\n\nCoeficientes estimados para mpg ~ wt + hp\n\n\nPredictor\nCoef.\nStd. Err.\nt-valor\np-valor\nSig.\nIC 95 %\n\n\n\n\nConstante\n37.227\n1.599\n23.28\n&lt;0.001\n***\n[33.957, 40.497]\n\n\nCapital social barrial\n-3.878\n0.633\n-6.13\n&lt;0.001\n***\n[-5.172, -2.584]\n\n\nPrecariedad laboral\n-0.032\n0.009\n-3.52\n0.001\n**\n[-0.050, -0.013]\n\n\nN\n32\n\n\n\n\n\n\n\nR^2\n0.827\n\n\n\n\n\n\n\nR^2 ajustado\n0.815\n\n\n\n\n\n\n\n\nNotas: *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05, . p &lt; 0.10",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Resultados</span>"
     ]
