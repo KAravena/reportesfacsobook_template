@@ -11,7 +11,7 @@ book:
   title: Reportes FACSO - Plantilla Quarto
   subtitle: Tesis, informes e investigaciones
   output-file: reportes-facso-plantilla
-  repo-url: https://github.com/KAravena/reportesfacsobook_template
+  repo-url: https://github.com/KAravena/reportesfacsobook_template  #URL del repositorio del libro (cambia segun tu repo)
   author:
     - name: Nombre Apellido
       affiliation: Departamento de Sociologia, Universidad de Chile
@@ -42,7 +42,7 @@ book:
     - 06-conclusiones.qmd
     - references.qmd
     # Para agregar un nuevo capitulo duplica un archivo .qmd y agregalo aqui:
-    # - 07-analisis-cualitativo.qmd
+    # ej: - 07-analisis-cualitativo.qmd
   appendices:
     - apendices/A-encuestas.qmd
     - apendices/B-tablas.qmd
@@ -57,7 +57,7 @@ format:
   html:
     theme:
       light: cosmo               # Cualquier tema Bootswatch (journal, litera, etc.)
-    toc: true                   # Cambia a true para mostrar tabla de contenido en cada pagina
+    toc: true                   
     toc-depth: 3
     toc-location: right
     number-sections: true
@@ -70,9 +70,9 @@ format:
     smooth-scroll: true
     link-external-newwindow: true
     include-in-header:
-      - includes/logo-link.html   # Inserta enlaces en el encabezado HTML (logo clicable)
       - includes/justify.html     # Ajusta justificacion a nivel global
     include-after-body:
+      - includes/logo-link.html   # Enlaces adicionales (logo clicable y descarga ZIP)
       - includes/citefix.html     # Corrige estilos de citas
       - includes/renumber.html    # Reajusta numeracion de figuras/tablas si es necesario
       - includes/code-toggle.html # Boton global para mostrar/ocultar bloques de codigo
